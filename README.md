@@ -27,8 +27,8 @@
 
 
 ## NAVIGATING THE REPOSITORIES
-### _There are two repos for this project!_
-### **1) DomainDissidence-Generator:**
+#### There are two repos for this project!
+### **1. [DomainDissidence-Generator](https://github.com/rynstwrt/DomainDissidence-Generator)**
   - The repo for the command that generates the custom DomainDissidence website.
-### **2) DomainDissidence-Website:**
-  - The repo for the website designing and planning 
+### **2. [DomainDissidence-Website](https://github.com/rynstwrt/DomainDissidence)**
+  - The repo for the website designing and planning.
