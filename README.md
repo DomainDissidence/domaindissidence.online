@@ -1,2 +1,1 @@
-# DomainDissidenceWebsite
- 
+# DomainDissidence-Generator
