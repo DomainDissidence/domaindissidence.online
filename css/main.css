@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gill Sans Extra Condensed Bold";
+  font-weight: bold;
+  src: url("../assets/fonts/GillSansExtraCondensedBold.otf") format("opentype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  color: inherit;
+  text-decoration: inherit;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #000;
+  color: #FFF;
+  font-family: "Inter", sans-serif;
+  /*font-weight: 900;*/
+  font-weight: normal;
+  font-style: normal;
+}
+
+#landing {
+  border: 1px solid #FFF;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#landing #landing-content {
+  display: flex;
+  flex-direction: column;
+  place-self: center;
+  place-items: center;
+}
+#landing #landing-content #landing-image-container {
+  background-color: #e40084;
+  width: 200px;
+  height: 290px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+#landing #landing-content #landing-text {
+  text-align: center;
+}
+#landing #landing-content #landing-text h1 {
+  font-family: "Gill Sans Extra Condensed Bold", monospacea;
+  font-size: 3.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transform: scaleY(0.7);
+  /*font-family: "Gill Sans Extra Condensed Bold", monospace;*/
+  /*font-size: 25px !important;*/
+  /*font-weight: bold;*/
+  border-bottom: 4px solid;
+}
+#landing #landing-content #landing-text h1 span.pink {
+  font-size: inherit;
+  border-bottom: 4px solid #e40084;
+}
+#landing #landing-content #landing-text p {
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */

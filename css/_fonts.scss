@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+
+.inter-font {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: "Gill Sans Extra Condensed Bold";
+    font-weight: bold;
+    src: url("../assets/fonts/GillSansExtraCondensedBold.otf") format("opentype");
+}
+
+
+
+
+$gill-sans-condensed: "Gill Sans Extra Condensed Bold", monospacea;
+$inter: "Inter", sans-serif;
