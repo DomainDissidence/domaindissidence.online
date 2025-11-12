@@ -54,13 +54,18 @@ body {
   place-self: center;
   place-items: center;
 }
-#landing #landing-content #landing-image-container {
-  background-color: #e40084;
+#landing #landing-content #canvas-container {
   width: 200px;
   height: 290px;
+  border: 1px solid #e43797;
   border-radius: 20px;
   margin-bottom: 40px;
-  opacity: 0.7;
+  overflow: hidden;
+}
+#landing #landing-content #canvas-container canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
 }
 #landing #landing-content #landing-text {
   text-align: center;
@@ -85,8 +90,8 @@ body {
 #landing #buttons button {
   flex: 1;
   background-color: transparent;
-  color: #e40084;
-  border: 1px solid #e40084;
+  color: #e43797;
+  border: 1px solid #e43797;
   border-radius: 5px;
   padding: 10px;
   text-transform: uppercase;
