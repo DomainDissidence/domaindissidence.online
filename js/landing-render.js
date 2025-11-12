@@ -1,7 +1,7 @@
 import * as THREE from "./lib/threejs/three.module.js";
 // import THREE;
 
-
+// const THREE = this
 
 const TARGET_CONTAINER = document.querySelector("#landing-canvas");
 
