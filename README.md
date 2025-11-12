@@ -1,13 +1,16 @@
 # domaindissidence.online
 Showcase website for _DomainDissidence_.
 
-_Visit the site at [**https://domaindissidence.online**](https://domaindissidence.online/)_
+_Visit the site at [https://domaindissidence.online](https://domaindissidence.online/)_
 
 <br>
 
- [\[**_...and view the main repo here_**\]](https://github.com/rynstwrt/DomainDissidence)
+ [**_...and view the main repo here_**](https://github.com/rynstwrt/DomainDissidence)
+
+<br> 
 
 ---
+<br>
 
 ## DomainDissidence
 #### Generate a website to encourage mass boycotts of malicious brands — without any programming knowledge! 
