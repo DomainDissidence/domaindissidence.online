@@ -21,3 +21,10 @@
 
 $gill-sans-condensed: "Gill Sans Extra Condensed Bold", monospacea;
 $inter: "Inter", sans-serif;
+
+
+@mixin gill-sans-styled {
+    font-family: $gill-sans-condensed;
+
+    transform: scaleY(.85);
+}
