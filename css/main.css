@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Mozilla+Text:wght@200..700&family=Outfit:wght@100..900&display=swap");
 .inter-font {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -26,45 +26,63 @@ html, body {
 body {
   background-color: #000;
   color: #FFF;
-  font-family: "Inter", sans-serif;
+  font-family: "Cabin", sans-serif;
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
   font-weight: normal;
   font-style: normal;
 }
 
-header {
-  height: 400px;
-  position: relative;
+section {
+  min-height: 500px;
+  padding: 40px;
+}
+section h3 {
+  font-size: 2rem;
+  border-right: 5px solid #e43797;
+  margin-bottom: 13px;
+  letter-spacing: 1px;
+}
+section#about p {
+  margin-bottom: 13px;
+}
+
+section#landing {
+  background-color: darkcyan;
   background-image: url("/assets/img/header-bg.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position: 30% center;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  place-content: center;
-}
-header #header-text {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-  font-size: 1.1rem;
-}
-header #header-text h1 {
-  font-size: 2em;
-  font-family: "Gill Sans Extra Condensed Bold", monospacea;
-  transform: scaleY(0.85);
-  letter-spacing: 5px;
-  text-transform: uppercase;
-}
-header #header-text p {
-  font-family: "Inter", sans-serif;
-  max-width: 80%;
-  font-size: inherit;
-}
-header #header-buttons {
-  display: flex;
   justify-content: center;
-  align-items: center;
+  position: relative;
+}
+section#landing:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(33, 19, 42, 0.51);
+}
+section#landing img {
+  width: 260px;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+section#landing p {
+  max-width: 350px;
+  z-index: 1;
+  font-size: 1.1rem;
+  font-family: "Cabin", sans-serif;
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
 /*# sourceMappingURL=main.css.map */

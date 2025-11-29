@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Mozilla+Text:wght@200..700&family=Outfit:wght@100..900&display=swap");
 
 
 .inter-font {
@@ -21,10 +21,19 @@
 
 $gill-sans-condensed: "Gill Sans Extra Condensed Bold", monospacea;
 $inter: "Inter", sans-serif;
+$cabin: "Cabin", sans-serif;
 
 
 @mixin gill-sans-styled {
     font-family: $gill-sans-condensed;
-
     transform: scaleY(.85);
+}
+
+
+@mixin cabin-styled {
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+  //font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
 }
