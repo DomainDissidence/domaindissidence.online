@@ -33,25 +33,54 @@ body {
   font-variation-settings: "wdth" 100;
   font-weight: normal;
   font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  color: #e43797;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+a:hover {
+  text-decoration: underline;
 }
 
 section {
-  min-height: 500px;
+  min-height: max(250px, fit-content);
   padding: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 section h3 {
   font-size: 2rem;
   border-right: 5px solid #e43797;
-  margin-bottom: 13px;
+  border-bottom: 3px solid #e43797;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  width: 100%;
+}
+section h4 {
+  font-size: 2.5rem;
+}
+section h4:after {
+  content: ".";
+  color: #e43797;
+}
+section p {
   letter-spacing: 1px;
 }
-section#about p {
-  margin-bottom: 13px;
+section:not(#landing) {
+  max-width: 600px;
 }
 
 section#landing {
   background-color: darkcyan;
-  background-image: url("/assets/img/header-bg.jpg");
+  background-image: url("/assets/img/bgone.JPG");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -59,6 +88,7 @@ section#landing {
   flex-direction: column;
   justify-content: center;
   position: relative;
+  min-height: 400px;
 }
 section#landing:after {
   content: "";
@@ -67,22 +97,89 @@ section#landing:after {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(33, 19, 42, 0.51);
+  background-color: rgba(28, 21, 59, 0.65);
+  backdrop-filter: blur(2px) brightness(0.5);
 }
 section#landing img {
   width: 260px;
-  z-index: 1;
   margin-bottom: 10px;
 }
 section#landing p {
   max-width: 350px;
-  z-index: 1;
   font-size: 1.1rem;
   font-family: "Cabin", sans-serif;
   font-family: "Cabin", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+}
+section#landing > * {
+  z-index: 1;
+}
+section#landing #landing-buttons {
+  margin-top: 20px;
+}
+section#landing #landing-buttons button {
+  font-family: inherit;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+section#landing #landing-buttons button:not(:last-of-type) {
+  margin-right: 5px;
+}
+
+section#about p {
+  margin-bottom: 13px;
+}
+
+section#why .quadrant-group {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+section#why .quadrant-group .quadrant {
+  margin: 10px 5px;
+}
+
+section#bigger-picture .row {
+  display: flex;
+  align-items: flex-end;
+}
+section#bigger-picture h4 {
+  border: 1px solid red;
+}
+section#bigger-picture p {
+  width: auto;
+}
+section#bigger-picture ul li {
+  color: #e43797;
+  max-width: fit-content;
+}
+
+section#inspiration {
+  align-items: center;
+}
+section#inspiration p {
+  margin-bottom: 20px;
+}
+section#inspiration img {
+  width: 100%;
+  max-width: 250px;
+}
+
+footer {
+  border-top: 1px solid #afafaf;
+  width: 100%;
+  padding: 10px;
+  color: #afafaf;
+  font-size: 0.9rem;
+}
+footer a {
+  color: inherit;
+}
+footer a:hover {
+  text-decoration-style: solid;
 }
 
 /*# sourceMappingURL=main.css.map */
