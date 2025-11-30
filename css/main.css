@@ -191,8 +191,8 @@ section#about p {
 
 section#why .quadrant-group {
   display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto auto;
   grid-gap: 10px;
 }
 section#why .quadrant-group .quadrant h4 {
@@ -229,11 +229,20 @@ section#bigger-picture .bigger-picture-row .bigger-picture-text {
   text-wrap: balance;
 }
 
+section#goals .section-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px 5px;
+}
+@media screen and (min-width: 570px) {
+  section#goals .section-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 section#goals .goal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 45px;
   max-width: 270px;
   text-align: center;
   margin-left: auto;
@@ -273,7 +282,7 @@ section#inspiration .section-content p a {
 }
 
 footer {
-  border-top: 1px solid rgb(229.5, 229.5, 229.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   width: 100%;
   padding: 15px;
   color: rgb(229.5, 229.5, 229.5);
