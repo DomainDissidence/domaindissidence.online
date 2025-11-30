@@ -75,6 +75,14 @@ a, button {
   font-family: inherit;
 }
 
+.icon {
+  stroke: #FFF;
+  stroke-width: 0.5px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 section {
   min-height: 330px;
   width: 100%;
@@ -196,23 +204,25 @@ section#why .quadrant-group .quadrant h4:after {
   color: #f75590;
 }
 
-.icon-container, section#goals .goal .goals-icon-container, section#bigger-picture .bigger-picture-row .bigger-picture-icon-container {
-  stroke: white;
-  stroke-width: 0.5px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
 section#bigger-picture .bigger-picture-row {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
 }
-section#bigger-picture .bigger-picture-row .bigger-picture-icon-container {
-  height: min-content;
-  margin-right: 15px;
-  min-width: 70px;
-  width: 70px;
+section#bigger-picture .bigger-picture-row .icon {
+  height: 65px;
+  min-width: 65px;
+  margin-right: 12px;
+}
+section#bigger-picture .bigger-picture-row .icon#circled-x {
+  background-image: url("/assets/icons/CircledX.svg");
+}
+section#bigger-picture .bigger-picture-row .icon#exclamation-shield {
+  background-image: url("/assets/icons/ExclamationShield.svg");
+}
+section#bigger-picture .bigger-picture-row .icon#lightning {
+  background-image: url("/assets/icons/Lightning.svg");
 }
 section#bigger-picture .bigger-picture-row .bigger-picture-text {
   max-width: 80%;
@@ -230,26 +240,21 @@ section#goals .goal {
   margin-right: auto;
   text-wrap: stable;
 }
-section#goals .goal .goals-icon {
-  width: 90px;
-  height: 90px;
-  stroke: #FFF;
-  stroke-width: 0.5px;
-  border: 1px solid white;
+section#goals .goal .icon {
+  width: 87px;
+  height: 87px;
   margin-bottom: 4px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
-section#goals .goal .goals-icon#community {
+section#goals .goal .icon#presentation {
+  background-image: url("/assets/icons/Presentation.svg");
+}
+section#goals .goal .icon#checked-box {
+  background-image: url("/assets/icons/CheckedBox.svg");
+}
+section#goals .goal .icon#community {
   background-image: url("/assets/icons/Community.svg");
 }
-section#goals .goal .goals-icon-container {
-  border: 1px solid rgb(229.5, 229.5, 229.5);
-  width: 90px !important;
-  height: 90px !important;
-  margin-bottom: 4px;
-}
+
 section#inspiration .section-content {
   display: flex;
   flex-direction: row;
