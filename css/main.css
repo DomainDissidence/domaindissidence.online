@@ -76,17 +76,19 @@ a, button {
 }
 
 section {
-  min-height: max(250px, fit-content);
+  min-height: 330px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 40px;
+}
+section .section-content, section .header {
+  max-width: 500px;
 }
 section .section-content {
-  max-width: 500px;
   display: flex;
   flex-direction: column;
-  padding: 40px;
   width: 100%;
 }
 section .header {
@@ -162,7 +164,7 @@ section#landing #landing-buttons button {
   padding: 0 10px;
   color: #FFF;
   font-size: 0.3rem;
-  text-align: left;
+  text-align: center;
   font-weight: 300;
   letter-spacing: 1px;
   transition: background-color 0.1s ease-out;
@@ -194,11 +196,12 @@ section#why .quadrant-group .quadrant h4:after {
   color: #f75590;
 }
 
-.icon-container img, section#goals .goal .goals-icon-container img, section#bigger-picture .bigger-picture-row .bigger-picture-icon-container img {
-  width: 100%;
-  height: 100%;
+.icon-container, section#goals .goal .goals-icon-container, section#bigger-picture .bigger-picture-row .bigger-picture-icon-container {
+  stroke: white;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
-
 section#bigger-picture .bigger-picture-row {
   display: flex;
   justify-content: center;
@@ -206,10 +209,10 @@ section#bigger-picture .bigger-picture-row {
   margin: 20px 0;
 }
 section#bigger-picture .bigger-picture-row .bigger-picture-icon-container {
-  min-width: 65px;
-  height: 65px;
+  height: min-content;
   margin-right: 15px;
-  text-wrap: stable;
+  min-width: 70px;
+  width: 70px;
 }
 section#bigger-picture .bigger-picture-row .bigger-picture-text {
   max-width: 80%;
@@ -227,21 +230,41 @@ section#goals .goal {
   margin-right: auto;
   text-wrap: stable;
 }
-section#goals .goal .goals-icon-container {
+section#goals .goal .goals-icon {
   width: 90px;
   height: 90px;
+  stroke: #FFF;
+  stroke-width: 0.5px;
+  border: 1px solid white;
+  margin-bottom: 4px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+section#goals .goal .goals-icon#community {
+  background-image: url("/assets/icons/Community.svg");
+}
+section#goals .goal .goals-icon-container {
+  border: 1px solid rgb(229.5, 229.5, 229.5);
+  width: 90px !important;
+  height: 90px !important;
   margin-bottom: 4px;
 }
-section#inspiration {
+section#inspiration .section-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
-section#inspiration img {
-  width: 100%;
-  max-width: 250px;
+section#inspiration .section-content img {
   border-radius: 5px;
+  height: 150px;
 }
-section#inspiration p {
-  margin-bottom: 20px;
+section#inspiration .section-content p {
+  margin-left: 20px;
+}
+section#inspiration .section-content p a {
+  font-style: italic;
 }
 
 footer {

@@ -1,3 +1,9 @@
-<svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="0.5" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" stroke-linecap="round" stroke-linejoin="round"></path>
+<!--<svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="0.5" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">-->
+<!--  <path d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" stroke-linecap="round" stroke-linejoin="round"></path>-->
+<!--</svg>-->
+
+<svg xmlns="http://www.w3.org/2000/svg">
+    <symbol id="lightning-icon" viewBox="0 0 24 24">
+        <path d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
 </svg>
