@@ -145,14 +145,17 @@ section#why .quadrant-group .quadrant {
 section#bigger-picture .bigger-picture-row {
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 section#bigger-picture .bigger-picture-row .bigger-picture-icon-container {
-  border: 1px solid #afafaf;
   border-radius: 5px;
-  min-width: 70px;
-  height: 70px;
+  min-width: 65px;
+  height: 65px;
   margin-right: 10px;
+}
+section#bigger-picture .bigger-picture-row .bigger-picture-icon-container img {
+  width: 100%;
+  height: 100%;
 }
 section#bigger-picture .bigger-picture-row .bigger-picture-text h3 {
   text-transform: uppercase;
@@ -162,11 +165,37 @@ section#bigger-picture .bigger-picture-row .bigger-picture-text h3 {
   letter-spacing: 2px;
 }
 
+section#goals {
+  align-items: center;
+}
+section#goals .goals-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
 section#goals .goals-col .goals-icon-container {
   border: 1px solid #afafaf;
   border-radius: 5px;
-  width: 70px;
-  min-height: 70px;
+  width: 120px;
+  min-height: 120px;
+  margin-bottom: 7px;
+}
+section#goals .goals-col h3, section#goals .goals-col p {
+  max-width: 300px;
+}
+section#goals .goals-col h3 {
+  text-transform: uppercase;
+  color: #e43797;
+  font-size: 1.3rem;
+  margin-bottom: 3px;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+}
+section#goals .goals-col p {
+  width: 100%;
+  text-align: center;
 }
 
 section#inspiration {
