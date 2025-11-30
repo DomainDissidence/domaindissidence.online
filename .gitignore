@@ -115,7 +115,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+#lib/
 lib64/
 parts/
 sdist/
@@ -211,3 +211,4 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+!/js/lib/

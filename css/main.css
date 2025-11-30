@@ -39,7 +39,7 @@ body {
 }
 
 a {
-  color: #e43797;
+  color: #f75590;
   text-decoration: underline;
   text-decoration-style: dotted;
 }
@@ -56,8 +56,8 @@ section {
 }
 section h2 {
   font-size: 2rem;
-  border-right: 5px solid #e43797;
-  border-bottom: 3px solid #e43797;
+  border-right: 5px solid #f75590;
+  border-bottom: 3px solid #f75590;
   margin-bottom: 15px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -69,7 +69,7 @@ section h4 {
 }
 section h4:after {
   content: ".";
-  color: #e43797;
+  color: #f75590;
 }
 section p {
   letter-spacing: 1px;
@@ -79,8 +79,7 @@ section:not(#landing) {
 }
 
 section#landing {
-  background-color: darkcyan;
-  background-image: url("/assets/img/bgone.JPG");
+  background-image: url("/assets/img/landing.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -97,8 +96,20 @@ section#landing:after {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(28, 21, 59, 0.65);
-  backdrop-filter: blur(2px) brightness(0.5);
+  backdrop-filter: blur(2px) brightness(15%);
+  z-index: 0;
+}
+section#landing > :not(canvas) {
+  z-index: 2;
+}
+section#landing canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.2;
 }
 section#landing img {
   width: 260px;
@@ -113,20 +124,23 @@ section#landing p {
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
-section#landing > * {
-  z-index: 1;
-}
 section#landing #landing-buttons {
   margin-top: 20px;
 }
 section#landing #landing-buttons button {
   font-family: inherit;
   text-transform: uppercase;
-  padding: 5px 10px;
+  padding: 3px 10px;
   cursor: pointer;
-}
-section#landing #landing-buttons button:not(:last-of-type) {
+  background-color: rgb(229.5, 229.5, 229.5);
+  color: #000;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  transition: background-color 0.1s ease-out;
   margin-right: 5px;
+}
+section#landing #landing-buttons button:hover {
+  background-color: #f75590;
 }
 
 section#about p {
@@ -142,24 +156,24 @@ section#why .quadrant-group .quadrant {
   margin: 10px 5px;
 }
 
+.icon-container img, section#goals .goals-col .goals-icon-container img, section#bigger-picture .bigger-picture-row .bigger-picture-icon-container img {
+  width: 100%;
+  height: 100%;
+}
+
 section#bigger-picture .bigger-picture-row {
   display: flex;
   align-items: center;
   margin: 20px 0;
 }
 section#bigger-picture .bigger-picture-row .bigger-picture-icon-container {
-  border-radius: 5px;
   min-width: 65px;
   height: 65px;
   margin-right: 10px;
 }
-section#bigger-picture .bigger-picture-row .bigger-picture-icon-container img {
-  width: 100%;
-  height: 100%;
-}
 section#bigger-picture .bigger-picture-row .bigger-picture-text h3 {
   text-transform: uppercase;
-  color: #e43797;
+  color: #f75590;
   font-size: 1.3rem;
   margin-bottom: 3px;
   letter-spacing: 2px;
@@ -172,21 +186,15 @@ section#goals .goals-col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 15px 0;
+  margin-top: 45px;
 }
 section#goals .goals-col .goals-icon-container {
-  border: 1px solid #afafaf;
-  border-radius: 5px;
-  width: 120px;
-  min-height: 120px;
-  margin-bottom: 7px;
-}
-section#goals .goals-col h3, section#goals .goals-col p {
-  max-width: 300px;
+  width: 100px;
+  min-height: 100px;
 }
 section#goals .goals-col h3 {
   text-transform: uppercase;
-  color: #e43797;
+  color: #f75590;
   font-size: 1.3rem;
   margin-bottom: 3px;
   letter-spacing: 2px;
@@ -194,8 +202,8 @@ section#goals .goals-col h3 {
   width: 100%;
 }
 section#goals .goals-col p {
-  width: 100%;
   text-align: center;
+  text-wrap: balance;
 }
 
 section#inspiration {
@@ -211,10 +219,10 @@ section#inspiration img {
 }
 
 footer {
-  border-top: 1px solid #afafaf;
+  border-top: 1px solid rgb(229.5, 229.5, 229.5);
   width: 100%;
   padding: 15px;
-  color: #afafaf;
+  color: rgb(229.5, 229.5, 229.5);
   font-size: 0.9rem;
 }
 footer a {

@@ -1,5 +1,7 @@
+@use "sass:color";
 @use "colors" as *;
 @use "fonts" as *;
+
 
 
 * {
@@ -89,10 +91,7 @@ section {
 
 
 section#landing {
-    background-color: darkcyan;
-    //background-image: url("/assets/img/header-bg.jpg");
-    //background-image: url("https://i.guim.co.uk/img/media/02769e3685d808d313e862c52e8b0a413d3d2b23/0_71_5043_3024/master/5043.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=ac2096fe8c2644b7e970c7a45f54dddd");
-    background-image: url("/assets/img/bgone.JPG");
+    background-image: url("/assets/img/landing.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -102,7 +101,6 @@ section#landing {
     position: relative;
     min-height: 400px;
 
-
     &:after {
         content: "";
         position: absolute;
@@ -110,10 +108,25 @@ section#landing {
         right: 0;
         bottom :0;
         left: 0;
-        background-color: rgba(28, 21, 59, 0.65);
-        //z-index: -1;
-        //opacity: .6;
-        backdrop-filter: blur(2px) brightness(.5);
+        backdrop-filter: blur(2px) brightness(15%);
+        //backdrop-filter: blur(400px);
+        z-index: 0;
+        //background-blend-mode: multiply;
+        //mix-blend-mode: multiply;
+    }
+
+    & > :not(canvas) {
+        z-index: 2;
+    }
+
+    canvas {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        opacity: .2;
     }
 
     img {
@@ -126,12 +139,8 @@ section#landing {
         font-size: 1.1rem;
         font-family: $cabin;
         @include cabin-styled;
-        //font-variation-settings: "wdth" 10;
     }
 
-    & > * {
-        z-index: 1;
-    }
 
     #landing-buttons {
         margin-top: 20px;
@@ -139,11 +148,19 @@ section#landing {
         button {
             font-family: inherit;
             text-transform: uppercase;
-            padding: 5px 10px;
+            padding: 3px 10px;
             cursor: pointer;
+            background-color: $dim-white;
+            //color: $white;
+            color: $black;
+            //border-radius: 1px;
+            font-size: .7rem;
+            letter-spacing: 1px;
+            transition: background-color .1s ease-out;
+            margin-right: 5px;
 
-            &:not(:last-of-type) {
-                margin-right: 5px;
+            &:hover {
+                background-color: $pink;
             }
         }
     }
@@ -175,6 +192,20 @@ section#why {
 }
 
 
+.icon-container {
+    //border-radius: 5px;
+
+    //object-fit: contain;
+
+
+    img {
+        width: 100%;
+        height: 100%;
+        //object-fit: cover;
+    }
+}
+
+
 section#bigger-picture {
     .bigger-picture-row {
         display: flex;
@@ -182,18 +213,13 @@ section#bigger-picture {
         margin: 20px 0;
 
         .bigger-picture-icon-container {
-            //background-color: gray;
-            //border: 1px solid $dim-white;
-            border-radius: 5px;
+            // background-color: gray;
+            // border: 1px solid $dim-white;
+            @extend .icon-container;
             $size: 65px;
             min-width: $size;
             height: $size;
             margin-right: 10px;
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
         }
 
         .bigger-picture-text {
@@ -217,20 +243,22 @@ section#goals {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 15px 0;
+        //margin: 20px 0;
+        margin-top: 45px;
 
         .goals-icon-container {
-            border: 1px solid $dim-white;
-            border-radius: 5px;
-            $size: 120px;
+            //border: 1px solid $dim-white;
+            //border-radius: 5px;
+            @extend .icon-container;
+            $size: 100px;
             width: $size;
             min-height: $size;
-            margin-bottom: 7px;
+            //margin-bottom: 3px;
         }
 
         h3, p {
             //padding: 0 30px;
-            max-width: 300px;
+            //max-width: 300px;
         }
 
         h3 {
@@ -244,8 +272,10 @@ section#goals {
         }
 
         p {
-            width: 100%;
+            //width: 100%;
             text-align: center;
+            //width: 70%;
+            text-wrap: balance;
         }
     }
 }

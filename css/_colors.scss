@@ -1,5 +1,14 @@
+@use "sass:color";
+
 $black: #000;
 $white: #FFF;
 $dim-white: #afafaf;
 // $pink: #e40084;
-$pink: #e43797;
+//$pink: #e43797;
+$dim-pink: #d2629e;
+$pink2: #f75590;
+$pink: #f75590;
+//$pink3: color.adjust(desaturate($pink, 30), $);
+//$pink3: color.adjust($pink, $lightness: -20, $saturation: -60);
+$muted-pink: rgba($pink, 0.8);
+$dim-white: color.adjust(#FFF, $lightness: -10);
