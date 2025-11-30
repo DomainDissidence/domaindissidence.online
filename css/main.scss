@@ -55,7 +55,7 @@ section {
     display: flex;
     flex-direction: column;
 
-    h3 {
+    h2 {
         font-size: 2rem;
         border-right: 5px solid $pink;
         border-bottom: 3px solid $pink;
@@ -176,45 +176,44 @@ section#why {
 
 
 section#bigger-picture {
-
-    .row {
+    .bigger-picture-row {
         display: flex;
-        align-items: flex-end;
-    }
+        align-items: center;
+        margin: 10px 0;
 
-    h4 {
-        //display: inline;
-        //width: auto;
-        border: 1px solid red;
-    }
+        .bigger-picture-icon-container {
+            //background-color: gray;
+            border: 1px solid $dim-white;
+            border-radius: 5px;
+            $size: 70px;
+            min-width: $size;
+            height: $size;
+            margin-right: 10px;
+        }
 
-    p {
-        width: auto;
-    }
-
-    ul {
-        li {
-            & {
+        .bigger-picture-text {
+            h3 {
+                text-transform: uppercase;
                 color: $pink;
-                max-width: fit-content;
+                font-size: 1.3rem;
+                margin-bottom: 3px;
+                letter-spacing: 2px;
             }
         }
     }
 }
 
 
-section#download {
-
-}
-
-
-section#usage {
-
-}
-
-
 section#goals {
-
+    .goals-col {
+        .goals-icon-container {
+            border: 1px solid $dim-white;
+            border-radius: 5px;
+            $size: 70px;
+            width: $size;
+            min-height: $size;
+        }
+    }
 }
 
 
@@ -231,6 +230,10 @@ section#inspiration {
         width: 100%;
         max-width: 250px;
         //border: 2px solid $pink;
+        border-radius: 5px;
+        //box-shadow: inset 0 0 5px 5px red !important;
+        //position: relative;
+        //box-shadow: inset 5em 1em gold;
     }
 }
 
@@ -239,7 +242,7 @@ footer {
     border-top: 1px solid $dim-white;
     //background-color: $pink;
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     color: $dim-white;
     font-size: .9rem;
 

@@ -54,7 +54,7 @@ section {
   display: flex;
   flex-direction: column;
 }
-section h3 {
+section h2 {
   font-size: 2rem;
   border-right: 5px solid #e43797;
   border-bottom: 3px solid #e43797;
@@ -142,19 +142,31 @@ section#why .quadrant-group .quadrant {
   margin: 10px 5px;
 }
 
-section#bigger-picture .row {
+section#bigger-picture .bigger-picture-row {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  margin: 10px 0;
 }
-section#bigger-picture h4 {
-  border: 1px solid red;
+section#bigger-picture .bigger-picture-row .bigger-picture-icon-container {
+  border: 1px solid #afafaf;
+  border-radius: 5px;
+  min-width: 70px;
+  height: 70px;
+  margin-right: 10px;
 }
-section#bigger-picture p {
-  width: auto;
-}
-section#bigger-picture ul li {
+section#bigger-picture .bigger-picture-row .bigger-picture-text h3 {
+  text-transform: uppercase;
   color: #e43797;
-  max-width: fit-content;
+  font-size: 1.3rem;
+  margin-bottom: 3px;
+  letter-spacing: 2px;
+}
+
+section#goals .goals-col .goals-icon-container {
+  border: 1px solid #afafaf;
+  border-radius: 5px;
+  width: 70px;
+  min-height: 70px;
 }
 
 section#inspiration {
@@ -166,12 +178,13 @@ section#inspiration p {
 section#inspiration img {
   width: 100%;
   max-width: 250px;
+  border-radius: 5px;
 }
 
 footer {
   border-top: 1px solid #afafaf;
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   color: #afafaf;
   font-size: 0.9rem;
 }
