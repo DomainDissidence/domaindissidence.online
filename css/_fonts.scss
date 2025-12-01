@@ -17,7 +17,7 @@
 .inter-font-style {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    font-weight: normal;
+    //font-weight: normal;
     font-style: normal;
 }
 
@@ -25,7 +25,7 @@
 .outfit-font-style {
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    //font-weight: 400;
     font-style: normal;
 }
 
@@ -33,7 +33,7 @@
 .mozilla-text-font-style {
   font-family: "Mozilla Text", sans-serif;
   font-optical-sizing: auto;
-  font-weight: inherit;
+  
   font-style: normal;
 }
 
@@ -41,7 +41,7 @@
 .jetbrains-mono-font-style {
   font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
-  font-weight: inherit;
+  
   font-style: normal;
 }
 
@@ -49,7 +49,7 @@
 .cabin-font-style {
   font-family: "Cabin", sans-serif;
   font-optical-sizing: auto;
-  //font-weight: inherit;
+  //
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
@@ -57,5 +57,7 @@
 
 
 @mixin set-font($name) {
-    @extend .#{to-lower-case($name)}-font-style;
+    & {
+        @extend .#{to-lower-case($name)}-font-style;
+    }
 }
