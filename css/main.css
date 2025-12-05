@@ -74,6 +74,10 @@ a:hover {
   text-decoration: underline;
 }
 
+a {
+  font-family: inherit;
+}
+
 .icon {
   stroke: #FFF;
   stroke-width: 0.5px;
@@ -360,9 +364,9 @@ section#inspiration .section-content p a {
 
 footer {
   width: 100%;
-  padding: 15px 17px;
+  padding: 20px 17px 16px 17px;
   color: rgb(229.5, 229.5, 229.5);
-  font-size: 0.8rem;
+  font-size: 0.77rem;
   text-align: center;
 }
 footer {
