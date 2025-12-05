@@ -62,60 +62,178 @@ a {
 }
 
 
-#background-layers {
-    //background-color: blue;
-    position: fixed;
+@mixin create-overlay($position-type: absolute) {
+    position: $position-type;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    //z-index: -1;
+    //overflow: hidden;
+    pointer-events: none;
+}
+
+
+#background-layers {
+    @include create-overlay("fixed");
+    //background-color: blue;
+    //position: relative;
+    //top: 0;
+    //right: 0;
+    //bottom: 0;
+    //left: 0;
+    //z-index: -1;
     overflow: hidden;
     //overflow-x: hidden;
-    pointer-events: none;
+    //pointer-events: none;
 
-    #background-image {
-        position: absolute;
+    #image-layers {
+        //border: 3px solid red;
+        //box-sizing: border-box;
+        position: fixed;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
+        //z-index: -2;
+        //width: 100%;
+        //height: 100%;
+        //background-color: blue;
+        //object-fit: cover;
 
-        $gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.4) 100%);
-
-        background: $gradient, url("/assets/img/landing.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-
-        &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            backdrop-filter: blur(3px) brightness(17%);
-            //backdrop-filter: blur(5px) brightness(25%);
+        #background-image {
+            box-shadow: inset 0 0 4px red;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 40% center;
+            //object-position: ;
+            //position: absolute;
+            //top: 0;
+            //right: 0;
+            //bottom: 0;
+            //left: 0;
+            //z-index: -2;
+            //background: url("/assets/img/landing.jpg");
+            //background-size: cover;
+            //background-repeat: no-repeat;
+            //background-attachment: fixed;
+            //background-attachment: local;
+            //background-position: 40% center;
+            //background-blend-mode: screen;
+            //background-blend-mode: lighten;
+            //background-blend-mode: multiply;
+            //mix-blend-mode: multiply;
         }
-    }
+
+        #color-overlay {
+            //position: fixed;
+            //top: 0;
+            //right: 0;
+            //bottom: 0;
+            //left: 0;
+            //opacity: .15;
+            //z-index: -1;
+            background-color: red;
+            width: 100%;
+            height: 100%;
+            //z-index: 199;
+            //$galpha: 0.6;
+            //$gcolor1: rgba(255, 255, 255, $galpha);
+            //$gcolor2: rgba(255, 0, 183, $galpha);
+            //$gradient: linear-gradient(to top, $gcolor1 0%, $gcolor2 100%);
+            //background: $gradient;
+            //background-blend-mode: multiply;
+            //mix-blend-mode: multiply;
+
+            //background-blend-mode: multiply;
+            //mix-blend-mode: multiply;
+            //backdrop-filter: blur(5px) brightness(20%);
+            //mix-blend-mode: multiply;
+            //opacity: 0.6;
+            //background-blend-mode: multiply;
+            //mix-blend-mode: multiply;
+            //backdrop-filter: blur(5px) contrast(105%) brightness(0.6);
+
+        }
 
 
-    #particles {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: .15;
+
+        //#background-image {
+        //    //position: absolute;
+        //    //top: 0;
+        //    //right: 0;
+        //    //bottom: 0;
+        //    //left: 0;
+        //    z-index: -2;
+        //
+        //
+        //    $galpha: 0.6;
+        //    $gcolor1: rgba(255, 255, 255, $galpha);
+        //    $gcolor2: rgba(255, 0, 183, $galpha);
+        //    $gradient: linear-gradient(to bottom, $gcolor1 0%, $gcolor2 100%);
+        //
+        //    background: url("/assets/img/landing.jpg");
+        //    background-size: cover;
+        //    background-repeat: no-repeat;
+        //    //background-attachment: fixed;
+        //    //background-attachment: local;
+        //    //background-position: 40% center;
+        //    //background-blend-mode: screen;
+        //    //background-blend-mode: lighten;
+        //    //background-blend-mode: multiply;
+        //    //mix-blend-mode: multiply;
+        //
+        //
+        //
+        //    &:after {
+        //        content: "";
+        //        position: fixed;
+        //        top: 0;
+        //        right: 0;
+        //        bottom: 0;
+        //        left: 0;
+        //        z-index: -2;
+        //        //backdrop-filter: blur(3px) brightness(0.6);
+        //
+        //        //background-color: red;
+        //        //opacity: .5;
+        //        //backdrop-filter: blur(3px) brightness(30%);
+        //
+        //        //backdrop-filter: blur(5px) brightness(25%);
+        //
+        //        //$galpha: 0.6;
+        //        //$galpha: 1;
+        //        //$gcolor1: rgba(255, 255, 255, $galpha);
+        //        //$gcolor2: rgba(255, 0, 183, $galpha);
+        //        //$gradient: linear-gradient(to bottom, $gcolor1 0%,  $gcolor2 100%);
+        //        //background: $gradient;
+        //        //background-blend-mode: multiply;
+        //        //mix-blend-mode: multiply;
+        //        //opacity: 0.7;
+        //        //    backdrop-filter: blur(4px) brightness(.4) contrast(105%);
+        //        //backdrop-filter: blur(5px) contrast(105%) brightness(0.6);
+        //
+        //    }
+
+
     }
+}
+
+
+
+#particles {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .15;
+    //opacity: 0.25;
+    z-index: 0;
 
 }
 
-//:root, body {
-//    --ddtheme-pink: "#FF6600";
-//}
 
 section {
     min-height: 330px;
@@ -134,8 +252,17 @@ section {
 
 
         &:nth-of-type(even) {
-            background-color: rgba($black, 0.36);
-            backdrop-filter: blur(6px);
+            background-color: transparent;
+            //background-color: rgba($black, 0.3);
+            //backdrop-filter: blur(6px) contrast(105%) brightness(90%);
+            backdrop-filter: blur(10px) contrast(110%) brightness(110%);
+            //background-color: red;
+
+            p {
+                //font-weight: 300;
+                //letter-spacing: 0.25px;
+
+            }
         }
     }
 
@@ -167,7 +294,8 @@ section {
         font-weight: 800;
         text-transform: uppercase;
         color: $pink;
-        font-size: 1.4rem;
+        //font-size: 1.4rem;
+        font-size: 1.5rem;
         margin-bottom: 3px;
         letter-spacing: 2px;
     }
@@ -185,25 +313,22 @@ section#landing {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    height: 100dvh;
+    //height: 100dvh;
+    height: 100lvh;
     overflow: hidden;
 
-    img {
-        width: 220px;
-        margin-bottom: 13px;
 
-        @include at-breakpoint($md) {
-            width: 290px;
-        }
-    }
 
 
     .section-content {
         position: relative;
-        backdrop-filter: blur(5px) brightness(87%) contrast(106%);
+        backdrop-filter: contrast(130%) blur(5px);
+
+        z-index: 99;
+
         //mix-blend-mode: overlay;
         //box-sizing: content-box;
-        background-blend-mode: multiply;
+        //background-blend-mode: multiply;
         padding: 35px 25px;
         box-sizing: content-box;
 
@@ -235,14 +360,52 @@ section#landing {
             //box-shadow: $shadow1;
             pointer-events: none;
         }
+
+
+        img {
+            width: 220px;
+            margin-bottom: 13px;
+
+            @include at-breakpoint($md) {
+                width: 290px;
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            text-wrap: pretty;
+            font-weight: 200;
+        }
+
     }
 
-    p {
-        font-size: 1.2rem;
-        text-wrap: pretty;
-        font-weight: 200;
-    }
 
+
+
+    #chevron-container {
+        //background-color: orangered;
+        position: absolute;
+        bottom: 20px;
+        //display: block;
+        width: 50px;
+        height: auto;
+        //width: auto;
+        //height: 40px;
+        aspect-ratio: 2 / 1.5;
+        margin-bottom: 10px;
+        //opacity: 0.6;
+        //    object-fit: fill;
+        //transform-origin: center;
+        //    filter: drop-shadow(0 -5px 2px red);
+
+        svg#down-chevron {
+            object-fit: fill;
+            min-width: 100%;
+            height: 100%;
+            //transform-origin: center;
+            //box-shadow: 0 0 5px red;
+        }
+    }
 
     #landing-buttons {
         margin-top: 50px;
@@ -281,40 +444,13 @@ section#landing {
             }
         }
     }
-
-
-    #chevron-container {
-        //background-color: orangered;
-        position: absolute;
-        bottom: 15px;
-        //display: block;
-        width: 50px;
-        height: auto;
-        //width: auto;
-        //height: 40px;
-        aspect-ratio: 2 / 1.5;
-        margin-bottom: 10px;
-        //opacity: 0.6;
-        //    object-fit: fill;
-        //transform-origin: center;
-        //    filter: drop-shadow(0 -5px 2px red);
-
-        svg#down-chevron {
-            object-fit: fill;
-            min-width: 100%;
-            height: 100%;
-            //transform-origin: center;
-            //box-shadow: 0 0 5px red;
-        }
-    }
-
-
 }
 
 
 section#about {
-    mask: linear-gradient(to bottom, transparent 0%, white 15%);
-    padding-top: 100px;
+    mask: linear-gradient(to bottom, transparent 0%, white 30%);
+    //padding-top: 100px;
+    padding-top: 117px;
 
     p {
         margin: 12px 0;
@@ -326,11 +462,22 @@ section#about {
 section#why {
     .quadrant-group {
         display: grid;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: auto auto;
         grid-template-columns: auto auto;
-        grid-gap: 9px;
+        //grid-gap: 0 5px;
+        //grid-gap: 8px;
+        //box-sizing: content-box;
+        //column-gap: 5px;
+        grid-gap: 13px;
+        place-content: center;
+
 
         .quadrant {
+            //box-shadow: 1px 1px rgba($pink, 0.5);
+            //padding: 10px;
+            //margin: 10px;
+            max-width: 300px;
+
             h4 {
                 @include set-font("outfit");
                 font-weight: 700;
@@ -340,6 +487,16 @@ section#why {
                     content: ".";
                     color: $pink;
                 }
+            }
+
+            p {
+                text-wrap: balance;
+                //text-wrap: stable;
+                //text-wrap: pretty;
+                //font-size: 0.99rem;
+                font-size: 1.03rem;
+                //background-color: red;
+                //padding-right: 4px;
             }
         }
     }
@@ -412,6 +569,7 @@ section#goals {
         //max-width: 270px;
         text-align: center;
         text-wrap: pretty;
+        transform-origin: top;
 
         .icon {
             width: $goal-icon-size;

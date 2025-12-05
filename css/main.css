@@ -92,43 +92,42 @@ a:hover {
 }
 
 #background-layers {
+  position: "fixed";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+#background-layers #image-layers {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
 }
-#background-layers #background-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.4) 100%), url("/assets/img/landing.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+#background-layers #image-layers #background-image {
+  box-shadow: inset 0 0 4px red;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% center;
 }
-#background-layers #background-image:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  backdrop-filter: blur(3px) brightness(17%);
+#background-layers #image-layers #color-overlay {
+  background-color: red;
+  width: 100%;
+  height: 100%;
 }
-#background-layers #particles {
+
+#particles {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   opacity: 0.15;
+  z-index: 0;
 }
 
 section {
@@ -145,8 +144,8 @@ section:not(#landing) {
   position: relative;
 }
 section:not(#landing):nth-of-type(even) {
-  background-color: rgba(0, 0, 0, 0.36);
-  backdrop-filter: blur(6px);
+  background-color: transparent;
+  backdrop-filter: blur(10px) contrast(110%) brightness(110%);
 }
 section .section-content, section .header {
   max-width: 600px;
@@ -172,7 +171,7 @@ section .subheader {
   font-weight: 800;
   text-transform: uppercase;
   color: #f75590;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 3px;
   letter-spacing: 2px;
 }
@@ -186,22 +185,13 @@ section#landing {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  height: 100dvh;
+  height: 100lvh;
   overflow: hidden;
-}
-section#landing img {
-  width: 220px;
-  margin-bottom: 13px;
-}
-@media screen and (min-width: 768px) {
-  section#landing img {
-    width: 290px;
-  }
 }
 section#landing .section-content {
   position: relative;
-  backdrop-filter: blur(5px) brightness(87%) contrast(106%);
-  background-blend-mode: multiply;
+  backdrop-filter: contrast(130%) blur(5px);
+  z-index: 99;
   padding: 35px 25px;
   box-sizing: content-box;
   box-shadow: 8px 5px #f75590;
@@ -224,10 +214,32 @@ section#landing .section-content:before {
   box-shadow: 4px 0 7px rgba(0, 0, 0, 0.7), -3px -2px 2px rgba(255, 255, 255, 0.03);
   pointer-events: none;
 }
-section#landing p {
+section#landing .section-content img {
+  width: 220px;
+  margin-bottom: 13px;
+}
+@media screen and (min-width: 768px) {
+  section#landing .section-content img {
+    width: 290px;
+  }
+}
+section#landing .section-content p {
   font-size: 1.2rem;
   text-wrap: pretty;
   font-weight: 200;
+}
+section#landing #chevron-container {
+  position: absolute;
+  bottom: 20px;
+  width: 50px;
+  height: auto;
+  aspect-ratio: 2/1.5;
+  margin-bottom: 10px;
+}
+section#landing #chevron-container svg#down-chevron {
+  object-fit: fill;
+  min-width: 100%;
+  height: 100%;
 }
 section#landing #landing-buttons {
   margin-top: 50px;
@@ -265,23 +277,10 @@ section#landing #landing-buttons button:not(:first-of-type) {
     flex: unset;
   }
 }
-section#landing #chevron-container {
-  position: absolute;
-  bottom: 15px;
-  width: 50px;
-  height: auto;
-  aspect-ratio: 2/1.5;
-  margin-bottom: 10px;
-}
-section#landing #chevron-container svg#down-chevron {
-  object-fit: fill;
-  min-width: 100%;
-  height: 100%;
-}
 
 section#about {
-  mask: linear-gradient(to bottom, transparent 0%, white 15%);
-  padding-top: 100px;
+  mask: linear-gradient(to bottom, transparent 0%, white 30%);
+  padding-top: 117px;
 }
 section#about p {
   margin: 12px 0;
@@ -289,9 +288,13 @@ section#about p {
 
 section#why .quadrant-group {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   grid-template-columns: auto auto;
-  grid-gap: 9px;
+  grid-gap: 13px;
+  place-content: center;
+}
+section#why .quadrant-group .quadrant {
+  max-width: 300px;
 }
 section#why .quadrant-group .quadrant h4 {
   font-weight: 700;
@@ -300,6 +303,10 @@ section#why .quadrant-group .quadrant h4 {
 section#why .quadrant-group .quadrant h4:after {
   content: ".";
   color: #f75590;
+}
+section#why .quadrant-group .quadrant p {
+  text-wrap: balance;
+  font-size: 1.03rem;
 }
 
 section#bigger-picture {
@@ -356,6 +363,7 @@ section#goals .goal {
   align-items: center;
   text-align: center;
   text-wrap: pretty;
+  transform-origin: top;
 }
 section#goals .goal .icon {
   width: 80px;
