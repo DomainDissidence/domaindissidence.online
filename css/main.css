@@ -2,7 +2,7 @@
 @font-face {
   font-family: "Gill Sans Extra Condensed Bold";
   font-weight: bold;
-  src: url("../assets/fonts/GillSansExtraCondensedBold.otf") format("opentype");
+  src: url("../../assets/fonts/GillSansExtraCondensedBold.otf") format("opentype");
 }
 .gill-sans-font-style {
   font-family: "Gill Sans Extra Condensed Bold", sans-serif;
@@ -91,7 +91,7 @@ section {
   padding: 40px;
 }
 section .section-content, section .header {
-  max-width: 500px;
+  max-width: 600px;
 }
 section .section-content {
   display: flex;
@@ -128,7 +128,7 @@ section#landing {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  height: 100dvh;
+  min-height: 80dvh;
 }
 section#landing:after {
   content: "";
@@ -242,15 +242,22 @@ section#why .quadrant-group .quadrant h4:after {
   color: #f75590;
 }
 
+section#bigger-picture {
+  align-items: center;
+}
+section#bigger-picture .section-content {
+  align-items: center;
+}
 section#bigger-picture .bigger-picture-row {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  max-width: fit-content;
 }
 section#bigger-picture .bigger-picture-row .icon {
-  height: 65px;
-  min-width: 65px;
+  height: 80px;
+  min-width: 80px;
   margin-right: 12px;
 }
 section#bigger-picture .bigger-picture-row .icon#circled-x {
@@ -262,11 +269,14 @@ section#bigger-picture .bigger-picture-row .icon#exclamation-shield {
 section#bigger-picture .bigger-picture-row .icon#lightning {
   background-image: url("/assets/icons/lightning.svg");
 }
-section#bigger-picture .bigger-picture-row .bigger-picture-text {
-  max-width: 80%;
-  text-wrap: balance;
+@media screen and (min-width: 570px) {
+  section#bigger-picture .bigger-picture-row .bigger-picture-text {
+    width: 70%;
+  }
 }
-
+section#bigger-picture .bigger-picture-row .bigger-picture-text h3, section#bigger-picture .bigger-picture-row .bigger-picture-text p {
+  width: fit-content;
+}
 section#goals .section-content {
   display: grid;
   grid-template-columns: 1fr;
@@ -283,7 +293,7 @@ section#goals .goal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 270px;
+  text-align: center;
   text-wrap: pretty;
 }
 section#goals .goal .icon {

@@ -1,7 +1,9 @@
 @use "sass:color";
-@use "colors" as *;
-@use "fonts" as *;
-@use "breakpoints" as bp;
+@use "sass:math";
+@use "partials/colors" as *;
+@use "partials/fonts" as *;
+@use "partials/breakpoints" as bp;
+@use "partials/constants" as *;
 
 
 @keyframes bounce {
@@ -89,7 +91,7 @@ section
 
     .section-content, .header
     {
-        max-width: 500px;
+        max-width: 600px;
     }
 
     .section-content
@@ -148,8 +150,9 @@ section#landing
     justify-content: center;
     position: relative;
     //min-height: 400px;
-    height: 100dvh;
+    //height: 100dvh;
     //position: relative;
+    min-height: 80dvh;
 
     &:after
     {
@@ -164,6 +167,9 @@ section#landing
         z-index: 0;
         //background-blend-mode: multiply;
         //mix-blend-mode: multiply;
+        //background-color: #f368e0;
+        //background-image: linear-gradient(315deg, #f368e0 0%, #d3d3d3 74%);
+
     }
 
     & > :not(canvas)
@@ -333,18 +339,39 @@ section#why
 
 section#bigger-picture
 {
+    align-items: center;
+    //display: flex;
+    //flex-direction: column;
+    //background-color: red;
+
+    .section-content {
+        //background-color: orange;
+        //width: fit-content;
+        align-items: center;
+    }
+
     .bigger-picture-row
     {
         display: flex;
         justify-content: center;
+        //justify-content: f lex-start;
         align-items: center;
         margin: 20px 0;
+        //background-color: green;
+        //width: fit-content;
+        //width: 100%;
+        //max-width: auto;
+        //width: auto;
+
+
+        max-width: fit-content;
+
+
 
         .icon
         {
-            $size: 65px;
-            height: $size;
-            min-width: $size;
+            height: $goal-icon-size;
+            min-width: $goal-icon-size;
             margin-right: 12px;
 
             &#circled-x
@@ -365,8 +392,59 @@ section#bigger-picture
 
         .bigger-picture-text
         {
-            max-width: 80%;
-            text-wrap: balance;
+            //width: fit-content;
+            //display: flex;
+            //flex-direction: column;
+            //justify-content: center;
+            //align-items: center;
+            //background-color: blue;
+            //max-width: 80%;
+
+            //background-color: purple;
+
+            //max-width: fit-content;
+
+            @media screen and (min-width: bp.$bp1) {
+                //max-width: calc(100% - ($bigger-picture-icon-size / 2));
+
+                width: 70%;
+
+                //background-color: red;
+            }
+
+            h3, p {
+                //border: 1px solid cyan;
+                width: fit-content;
+                //text-wrap: wrap;
+            }
+
+            //width: min-content;
+            //width: 100%;
+
+            h3 {
+
+                //width: fit-content;
+
+                //background-color: red;
+            }
+
+            p {
+                //text-wrap: balance;
+
+
+                //text-wrap: pretty;
+                //text-wrap: stable;
+
+                //width: min-content;
+                //background-color: pink;
+                //max-width: calc(100% - $bigger-picture-icon-size);
+
+
+
+
+
+
+            }
         }
     }
 }
@@ -394,17 +472,16 @@ section#goals
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-width: 270px;
-        //text-align: center;
+        //max-width: 270px;
+        text-align: center;
         //margin-left: auto;
         //margin-right: auto;
         text-wrap: pretty;
 
         .icon
         {
-            $size: 80px;
-            width: $size;
-            height: $size;
+            width: $goal-icon-size;
+            height: $goal-icon-size;
             margin-bottom: 4px;
 
             &#presentation

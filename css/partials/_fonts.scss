@@ -1,10 +1,11 @@
+@use "sass:string";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Mozilla+Text:wght@200..700&family=Outfit:wght@100..900&display=swap");
 
 
 @font-face {
     font-family: "Gill Sans Extra Condensed Bold";
     font-weight: bold;
-    src: url("../assets/fonts/GillSansExtraCondensedBold.otf") format("opentype");
+    src: url("../../assets/fonts/GillSansExtraCondensedBold.otf") format("opentype");
 }
 
 
@@ -58,6 +59,6 @@
 
 @mixin set-font($name) {
     & {
-        @extend .#{to-lower-case($name)}-font-style;
+        @extend .#{string.to-lower-case($name)}-font-style;
     }
 }

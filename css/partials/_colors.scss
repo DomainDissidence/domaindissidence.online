@@ -11,4 +11,4 @@ $pink: #f75590;
 //$pink3: color.adjust(desaturate($pink, 30), $);
 //$pink3: color.adjust($pink, $lightness: -20, $saturation: -60);
 $muted-pink: rgba($pink, 0.8);
-$dim-white: color.adjust(#FFF, $lightness: -10);
+$dim-white: color.adjust(#FFF, $lightness: -10%);
