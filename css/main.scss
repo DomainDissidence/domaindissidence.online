@@ -3,74 +3,57 @@
 @use "partials/fonts" as *;
 @use "partials/breakpoints" as *;
 @use "partials/constants" as *;
+@use "sass:map";
 
 
 @keyframes bounce {
-    0% { bottom: 0; }
-    100% { bottom: 5px; }
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: 5px;
+    }
 }
 
 
-*
-{
+* {
     margin: 0;
     padding: 0;
     border: none;
     box-sizing: border-box;
-    // color: inherit;
-    // text-decoration: inherit;
-    //font-weight: inherit;
-    //@include set-font("cabin");
-    //@include set-font("outfit");
-    //font-family: inherit;
     font-size: 17px;
     scroll-behavior: smooth;
 }
 
 
-html, body
-{
+
+
+html, body {
     height: 100%;
 }
 
 
-body
-{
+body {
     background-color: $black;
     color: $white;
-    //@include set-font("cabin");
-    //@include set-font("outfit");
-    //@include set-font("jetbrains-mono");
-    //@include set-font("cabin");
     @include set-font("outfit");
     font-weight: 300;
 }
 
 
-a
-{
+a {
     color: $pink;
     text-decoration: underline;
     text-decoration-style: dotted;
+    font-family: inherit;
 
-    &:hover
-    {
+    &:hover {
         text-decoration: underline;
     }
 }
 
 
-//a, button
-a
-{
-    font-family: inherit;
-    //text-decoration: inherit;
-
-}
-
-
-.icon
-{
+.icon {
     stroke: $white;
     stroke-width: 0.5px;
     background-size: contain;
@@ -79,9 +62,60 @@ a
 }
 
 
+#background-layers {
+    //background-color: blue;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+    //overflow-x: hidden;
+    pointer-events: none;
 
-section
-{
+    #background-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        $gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.4) 100%);
+
+        background: $gradient, url("/assets/img/landing.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            backdrop-filter: blur(3px) brightness(17%);
+            //backdrop-filter: blur(5px) brightness(25%);
+        }
+    }
+
+
+    #particles {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: .15;
+    }
+
+}
+
+
+
+section {
     min-height: 330px;
     width: 100%;
     display: flex;
@@ -91,39 +125,29 @@ section
     position: relative;
 
 
-    &:not(#landing):after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        max-width: $section-content-max-width + 100px;
-        border-bottom: 1px solid rgba(color.adjust($black, $lightness: 20%), .5);
+    &:not(#landing) {
+        background-color: $black;
+        position: relative;
+        //background-color: rgba($black, 0.4);
 
-        //margin: 0 100px;
-        //box-sizing: border-box;
-        margin: auto;
+
+        &:nth-of-type(even) {
+            background-color: rgba($black, 0.36);
+            backdrop-filter: blur(6px);
+        }
     }
 
-    .section-content, .header
-    {
+    .section-content, .header {
         max-width: $section-content-max-width;
     }
 
-    .section-content
-    {
-        //max-width: 500px;
+    .section-content {
         display: flex;
         flex-direction: column;
-        //align-items: center;
-        //padding: 40px;
         width: 100%;
-        //height: 100%;
     }
 
-    .header
-    {
+    .header {
         @include set-font("cabin");
         font-weight: 800;
         font-size: 2rem;
@@ -136,8 +160,7 @@ section
         width: 100%;
     }
 
-    .subheader
-    { /* Pink text subheaders */
+    .subheader { /* Pink text subheaders */
         @include set-font("mozilla-text");
         font-weight: 800;
         text-transform: uppercase;
@@ -155,53 +178,15 @@ section
 }
 
 
-section#landing
-{
-    background-image: url("/assets/img/landing.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+section#landing {
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    height: 100%;
-    //max-height: 80dvh;
-    //max-height: calc(100dvh - 100px);
+    height: 100dvh;
     overflow: hidden;
 
-    &:after
-    {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        backdrop-filter: blur(2px) brightness(15%);
-        z-index: 0;
-
-    }
-
-    & > :not(canvas)
-    {
-        z-index: 3;
-    }
-
-    canvas
-    {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
-        opacity: .12;
-        pointer-events: none;
-    }
-
-    img
-    {
+    img {
         width: 220px;
         margin-bottom: 13px;
 
@@ -213,11 +198,12 @@ section#landing
 
     .section-content {
         position: relative;
-        backdrop-filter: blur(3px) brightness(85%);
+        backdrop-filter: blur(5px) brightness(74%);
+        //mix-blend-mode: overlay;
         //box-sizing: content-box;
+        background-blend-mode: multiply;
         padding: 35px 25px;
         box-sizing: content-box;
-        background-blend-mode: multiply;
 
         @mixin set-box-shadow($x, $y, $color: $pink) {
             box-shadow: $x $y $color;
@@ -243,37 +229,28 @@ section#landing
             $shadow1: 8px 7px 5px rgba($black, 0.4);
             $shadow2: -3px -2px 2px rgba($white, 0.05);
             box-shadow: $shadow1, $shadow2;
+            //box-shadow: $shadow1;
             pointer-events: none;
         }
     }
 
-    p
-    {
+    p {
         font-size: 1.2rem;
-        //font-weight: 400 !important;
-        //font-family: $cabin;
-        //@include cabin-styled;
-        //text-wrap: balance;
         text-wrap: pretty;
-        //@include set-font("outfit");
         font-weight: 200;
     }
 
 
     #landing-buttons {
         margin-top: 50px;
-        //background-color: red;
         display: flex;
 
 
         button {
             background-color: transparent;
             border: 1px solid $pink;
-            //border-radius: 5px;
-            //border-radius: 2px;
             color: $pink;
             padding: 8px 30px;
-            //margin-top: 50px;
             text-transform: uppercase;
             text-align: center;
             letter-spacing: 1px;
@@ -282,7 +259,6 @@ section#landing
             @include set-font("outfit");
             font-weight: 300;
 
-
             @include at-breakpoint($sm) {
                 min-width: 180px;
             }
@@ -290,7 +266,6 @@ section#landing
             &:hover {
                 background-color: $pink;
                 color: $white;
-
             }
 
             &:not(:first-of-type) {
@@ -322,35 +297,31 @@ section#landing
 }
 
 
-section#about
-{
-    p
-    {
+section#about {
+    mask: linear-gradient(to bottom, transparent 0%, white 15%);
+    padding-top: 100px;
+
+    p {
         margin: 12px 0;
         //margin-bottom: 17px;
     }
 }
 
 
-section#why
-{
-    .quadrant-group
-    {
+section#why {
+    .quadrant-group {
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: auto auto;
         grid-gap: 9px;
 
-        .quadrant
-        {
-            h4
-            {
+        .quadrant {
+            h4 {
                 @include set-font("outfit");
                 font-weight: 700;
                 font-size: 2.5rem;
 
-                &:after
-                {
+                &:after {
                     content: ".";
                     color: $pink;
                 }
@@ -360,151 +331,87 @@ section#why
 }
 
 
-section#bigger-picture
-{
+section#bigger-picture {
     align-items: center;
 
     .section-content {
         align-items: center;
     }
 
-    .bigger-picture-row
-    {
+    .bigger-picture-row {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 20px 0;
         max-width: fit-content;
 
-        .icon
-        {
+        .icon {
             height: $goal-icon-size;
             min-width: $goal-icon-size;
             margin-right: 12px;
 
-            &#circled-x
-            {
+            &#circled-x {
                 background-image: url("/assets/icons/circledx.svg");
             }
 
-            &#exclamation-shield
-            {
+            &#exclamation-shield {
                 background-image: url("/assets/icons/exclamationshield.svg");
             }
 
-            &#lightning
-            {
+            &#lightning {
                 background-image: url("/assets/icons/lightning.svg");
             }
         }
 
-        .bigger-picture-text
-        {
-            //width: fit-content;
-            //display: flex;
-            //flex-direction: column;
-            //justify-content: center;
-            //align-items: center;
-            //background-color: blue;
-            //max-width: 80%;
-
-            //background-color: purple;
-
-            //max-width: fit-content;
-
-            //@media screen and (min-width: $bp1) {
+        .bigger-picture-text {
             @include at-breakpoint($sm) {
-                //max-width: calc(100% - ($bigger-picture-icon-size / 2));
-
                 width: 70%;
-
-                //background-color: red;
             }
 
             h3, p {
-                //border: 1px solid cyan;
                 width: fit-content;
-                //text-wrap: wrap;
-            }
-
-            //width: min-content;
-            //width: 100%;
-
-            h3 {
-
-                //width: fit-content;
-
-                //background-color: red;
-            }
-
-            p {
-                //text-wrap: balance;
-
-
-                //text-wrap: pretty;
-                //text-wrap: stable;
-
-                //width: min-content;
-                //background-color: pink;
-                //max-width: calc(100% - $bigger-picture-icon-size);
-
-
-
-
-
-
             }
         }
     }
 }
 
 
-section#goals
-{
+section#goals {
 
-    .section-content
-    {
+    .section-content {
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 30px 5px;
         place-items: flex-start center;
         margin-top: 10px;
 
-        @include at-breakpoint($sm)
-        {
+        @include at-breakpoint($sm) {
             grid-template-columns: 1fr 1fr 1fr;
         }
     }
 
-    .goal
-    {
+    .goal {
         display: flex;
         flex-direction: column;
         align-items: center;
         //max-width: 270px;
         text-align: center;
-        //margin-left: auto;
-        //margin-right: auto;
         text-wrap: pretty;
 
-        .icon
-        {
+        .icon {
             width: $goal-icon-size;
             height: $goal-icon-size;
             margin-bottom: 4px;
 
-            &#presentation
-            {
+            &#presentation {
                 background-image: url("/assets/icons/presentation.svg");
             }
 
-            &#checked-box
-            {
+            &#checked-box {
                 background-image: url("/assets/icons/checkedbox.svg");
             }
 
-            &#community
-            {
+            &#community {
                 background-image: url("/assets/icons/community.svg");
             }
         }
@@ -512,27 +419,24 @@ section#goals
 }
 
 
-section#inspiration
-{
-    .section-content
-    {
+section#inspiration {
+    //background-color: transparent !important;
+
+    .section-content {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
 
-        img
-        {
+        img {
             border-radius: 3px;
             height: 150px;
         }
 
-        p
-        {
+        p {
             margin-left: 20px;
 
-            a
-            {
+            a {
                 font-style: italic;
             }
         }
@@ -540,8 +444,7 @@ section#inspiration
 }
 
 
-footer
-{
+footer {
     //border-top: 1px solid rgba($white, 0.3);
     width: 100%;
     //padding: 15px;
@@ -552,6 +455,7 @@ footer
     font-size: .77rem;
     text-align: center;
     //font-weight: 100;
+    background-color: $black;
 
 
     //min-height: 70px;
@@ -560,16 +464,14 @@ footer
         @include set-font("inter");
         font-weight: 100;
 
-        a
-        {
+        a {
             color: inherit;
             font-family: inherit;
             text-decoration: none;
             font-weight: 200;
             transition: color .05s ease-out;
 
-            &:hover
-            {
+            &:hover {
                 text-decoration: none;
                 //text-decoration-style: solid;
                 color: $pink;

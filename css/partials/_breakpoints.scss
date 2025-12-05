@@ -4,8 +4,6 @@ $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
 
-$bp1: 570px;
-
 @mixin at-breakpoint($min-width) {
     @media screen and (min-width: $min-width) {
         @content;

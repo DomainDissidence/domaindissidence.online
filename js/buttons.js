@@ -4,18 +4,17 @@ const CREATE_WEBSITE_URL = "https://github.com/rynstwrt/DomainDissidence/release
 const GUIDE_URL = "https://github.com/rynstwrt/DomainDissidence/wiki";
 
 
-function onClick(url) {
-    if (COMING_SOON_MODE)
-        return alert("Coming soon!");
-
-    window.open(url, "_blank");
-}
+let buttonIdUrlDict = {
+    "create-website-button": CREATE_WEBSITE_URL,
+    "guide-button": GUIDE_URL
+};
 
 
-document.querySelector("#create-website-button")
-        .addEventListener("click", () =>
-            onClick(CREATE_WEBSITE_URL));
+document.querySelectorAll("#landing button")
+    .forEach(btn => btn.addEventListener("click", () => {
+        if (COMING_SOON_MODE)
+            return window.alert("Coming soon...");
 
-document.querySelector("#guide-button")
-        .addEventListener("click", () =>
-            onClick(GUIDE_URL));
+        const url = buttonIdUrlDict[btn.id];
+        url && window.open(url, "_blank");
+    }));
