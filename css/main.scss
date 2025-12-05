@@ -86,7 +86,7 @@ section
     position: relative;
 
 
-    &:not(#landing):not(:last-of-type):after {
+    &:not(#landing):after {
         content: "";
         position: absolute;
         top: 0;
@@ -197,8 +197,12 @@ section#landing
 
     img
     {
-        width: 290px;
+        width: 220px;
         margin-bottom: 13px;
+
+        @include at-breakpoint($md) {
+            width: 290px;
+        }
     }
 
 
@@ -258,7 +262,8 @@ section#landing
         button {
             background-color: transparent;
             border: 1px solid $pink;
-            border-radius: 5px;
+            //border-radius: 5px;
+            //border-radius: 2px;
             color: $pink;
             padding: 8px 30px;
             //margin-top: 50px;
@@ -507,7 +512,7 @@ section#inspiration
 
         img
         {
-            border-radius: 5px;
+            border-radius: 3px;
             height: 150px;
         }
 
@@ -526,14 +531,18 @@ section#inspiration
 
 footer
 {
-    border-top: 1px solid rgba($white, 0.3);
+    //border-top: 1px solid rgba($white, 0.3);
     width: 100%;
     //padding: 15px;
     //padding: 15px 15px 15px 15px;
     padding: 15px 17px;
     //margin-top: 100px;
     color: $dim-white;
-    font-size: .9rem;
+    font-size: .8rem;
+    text-align: center;
+    @include set-font("inter");
+    font-weight: 100;
+
 
     //min-height: 70px;
 
