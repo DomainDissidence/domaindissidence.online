@@ -94,7 +94,7 @@ a:hover {
   bottom: 0;
   left: 0;
   z-index: -1;
-  overflow-x: hidden;
+  overflow: hidden;
   pointer-events: none;
 }
 #background-layers #background-image {
@@ -103,7 +103,7 @@ a:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.5) 100%), url("/assets/img/landing.jpg");
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.4) 100%), url("/assets/img/landing.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -116,7 +116,7 @@ a:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(3px) brightness(25%);
+  backdrop-filter: blur(3px) brightness(17%);
 }
 #background-layers #particles {
   position: absolute;
@@ -140,23 +140,9 @@ section:not(#landing) {
   background-color: #000;
   position: relative;
 }
-section:not(#landing):before {
-  content: "";
-  position: absolute;
-  background-color: black;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  pointer-events: none;
-  mask: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 95%, black);
-}
-section:not(#landing):nth-of-type(odd) {
-  z-index: 2;
-}
 section:not(#landing):nth-of-type(even) {
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(7px);
+  background-color: rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(6px);
 }
 section .section-content, section .header {
   max-width: 600px;
@@ -210,10 +196,10 @@ section#landing img {
 }
 section#landing .section-content {
   position: relative;
-  backdrop-filter: blur(3px) brightness(85%);
+  backdrop-filter: blur(5px) brightness(74%);
+  background-blend-mode: multiply;
   padding: 35px 25px;
   box-sizing: content-box;
-  background-blend-mode: multiply;
   box-shadow: 8px 5px #f75590;
   margin-right: 8px;
 }
@@ -289,6 +275,10 @@ section#landing #down-chevron {
   animation: bounce 1s infinite ease-in-out alternate;
 }
 
+section#about {
+  mask: linear-gradient(to bottom, transparent 0%, white 15%);
+  padding-top: 100px;
+}
 section#about p {
   margin: 12px 0;
 }

@@ -21,12 +21,6 @@
     padding: 0;
     border: none;
     box-sizing: border-box;
-    // color: inherit;
-    // text-decoration: inherit;
-    //font-weight: inherit;
-    //@include set-font("cabin");
-    //@include set-font("outfit");
-    //font-family: inherit;
     font-size: 17px;
     scroll-behavior: smooth;
 }
@@ -76,8 +70,8 @@ a {
     bottom: 0;
     left: 0;
     z-index: -1;
-    //overflow: hidden;
-    overflow-x: hidden;
+    overflow: hidden;
+    //overflow-x: hidden;
     pointer-events: none;
 
     #background-image {
@@ -87,7 +81,7 @@ a {
         bottom: 0;
         left: 0;
 
-        $gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.5) 100%);
+        $gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.4) 100%);
 
         background: $gradient, url("/assets/img/landing.jpg");
         background-size: cover;
@@ -102,7 +96,8 @@ a {
             right: 0;
             bottom: 0;
             left: 0;
-            backdrop-filter: blur(3px) brightness(25%);
+            backdrop-filter: blur(3px) brightness(17%);
+            //backdrop-filter: blur(5px) brightness(25%);
         }
     }
 
@@ -133,137 +128,13 @@ section {
     &:not(#landing) {
         background-color: $black;
         position: relative;
-        //$bshadow1: 0 5px 5px rgba($black, 0.3);
-        //$bshadow2: set-nth($bshadow1, 2, calc(nth($bshadow1, 2) * -1));
-        //box-shadow: $bshadow1, $bshadow2;
-        //mask: linear-gradient(to bottom, rgba(#000, 0) 0%, rgba(#000, 1) 5%, rgba(#000, 1) 95%, rgba(#000, 0));
-        //box-shadow: 0 10px 5px rgba(red, 1);
-
-        &:before {
-          content: "";
-          //display: block;
-          position: absolute;
-            background-color: black;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-          pointer-events: none;
-            //z-index: -10;
-        //mask: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 5%, rgba(#000, 0) 95%, rgba(#000, 1));
-        mask: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 5%, rgba(#000, 0) 95%, rgba(#000, 1));
-
-        }
-
-        //&:nth-of-type(1) {
-        //    z-index: 10;
-        //    background-color: red !important;
-        //    border: 1px solid red;
-        //
-        //}
-        //    &:before {
-        ////border: 1px solid green;
-        ////    content: "";
-        //    position: absolute;
-        //    top: 0;
-        //    right: 0;
-        //    bottom: 0;
-        //    left: 0;
-        //        //box-shadow: 0 6px 5px rgba;
-        //     box-shadow: 0 4px 5px rgba($black, .3);
-        //    //z-index: 10;
-        //
-        ////overflow-x: hidden;
-        //
-        //}
-
-
-        &:nth-of-type(odd) {
-            //background-color: $black;
-            //$bshadow1: 0 5px 5px rgba($black, 0.3);
-            //$bshadow2: set-nth($bshadow1, 2, calc(nth($bshadow1, 2) * -1));
-            //box-shadow: $bshadow1, $bshadow2;
-            //$bg-color: rgba($black, 0.4);
-
-            //$c1: $black;
-            //$c2: rgba($black, 0.4);
-            //background: linear-gradient(to bottom, $c2 0%, $c1 5%, $c1 95%, $c2 100%);
-            //background: linear-gradient(to bottom, $black 90%, $bg-color 100%)
-            z-index: 2;
-        }
+        //background-color: rgba($black, 0.4);
 
 
         &:nth-of-type(even) {
-            background-color: rgba($black, 0.4);
-            backdrop-filter: blur(7px);
-
-            //$bg-color: rgba($black, 0.4);
-            //background: linear-gradient(to bottom, $bg-color 90%, $black 100%)
-
-
-            //$bshadow1: 0 5px 5px rgba($black, 0.3);
-            //$bshadow2: set-nth($bshadow1, 2, calc(nth($bshadow1, 2) * -1));
-            //box-shadow: $bshadow1, $bshadow2;
-            //background: linear-gradient(to bottom, rgba(black, 0) 0%, rgba(black, 1) 100%);
-
-            //mask: linear-gradient(to bottom, rgba(#000, 0) 0%, rgba(#000, 1) 5%, rgba(#000, 1) 95%, rgba(#000, 0));
+            background-color: rgba($black, 0.36);
+            backdrop-filter: blur(6px);
         }
-        //&:after {
-        //    content: "";
-        //    position: absolute;
-        //    top: 0;
-        //    right: 0;
-        //    bottom: 0;
-        //    left: 0;
-        // box-shadow: 0 10px 5px rgba(red, 1);
-        //    //z-index: 10;
-        //
-        //
-        //}
-        //&:nth-of-type(odd):before {
-        //    //content: "";
-        //    position: absolute;
-        //    top: -10px;
-        //
-        //    //top: 0;
-        //    right: 0;
-        //    //bottom: -100px;
-        //    bottom: 0;
-        //    left: 0;
-        //    overflow: hidden;
-        //
-        //
-        //    background-color: black;
-        //    mask: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 5%, rgba(#000, 0) 95%, rgba(#000, 1));
-        //
-        //
-        //    //mask: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 5%, rgba(#000, 0) 95%, rgba(#000, 1));
-        //
-        //    //--mask: linear-gradient(to bottom,
-        //    //        rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) 40%,
-        //    //        rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 0
-        //    //) 100% 50% / 100% 100% repeat-x;
-        //    //
-        //    ////border: 1px #d8d8d8 dashed;
-        //    //font: 2em/1.6em Arial;
-        //    //-webkit-mask: var(--mask);
-        //    //mask: var(--mask);
-        //
-        //
-        //    //$bshadow1: 0 6px 8px rgba($black, 0.5);
-        //    //$bshadow2: set-nth($bshadow1, 2, calc(nth($bshadow1, 2) * -1));
-        //    //box-shadow: $bshadow1, $bshadow2;
-        //
-        //    & {
-        //        //background-color: red;
-        //    }
-        //
-        //    //z-index: 4;
-        //    //z-index: -1;
-        //
-        //}
-
-
     }
 
     .section-content, .header {
@@ -271,13 +142,9 @@ section {
     }
 
     .section-content {
-        //max-width: 500px;
         display: flex;
         flex-direction: column;
-        //align-items: center;
-        //padding: 40px;
         width: 100%;
-        //height: 100%;
     }
 
     .header {
@@ -331,12 +198,12 @@ section#landing {
 
     .section-content {
         position: relative;
-        backdrop-filter: blur(3px) brightness(85%);
+        backdrop-filter: blur(5px) brightness(74%);
+        //mix-blend-mode: overlay;
         //box-sizing: content-box;
+        background-blend-mode: multiply;
         padding: 35px 25px;
         box-sizing: content-box;
-        background-blend-mode: multiply;
-        //z-index: 1;
 
         @mixin set-box-shadow($x, $y, $color: $pink) {
             box-shadow: $x $y $color;
@@ -362,6 +229,7 @@ section#landing {
             $shadow1: 8px 7px 5px rgba($black, 0.4);
             $shadow2: -3px -2px 2px rgba($white, 0.05);
             box-shadow: $shadow1, $shadow2;
+            //box-shadow: $shadow1;
             pointer-events: none;
         }
     }
@@ -430,6 +298,9 @@ section#landing {
 
 
 section#about {
+    mask: linear-gradient(to bottom, transparent 0%, white 15%);
+    padding-top: 100px;
+
     p {
         margin: 12px 0;
         //margin-bottom: 17px;
