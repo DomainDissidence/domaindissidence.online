@@ -69,8 +69,6 @@ a, button
 {
     stroke: $white;
     stroke-width: 0.5px;
-    //border: 1px solid white;
-    //margin-bottom: 4px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -80,14 +78,12 @@ a, button
 
 section
 {
-    //min-height: max(300px, fit-content);
     min-height: 330px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px;
-    //margin-bottom: 60px;
 
     .section-content, .header
     {
@@ -121,7 +117,6 @@ section
         letter-spacing: 1px;
         text-transform: uppercase;
         padding-bottom: 4px;
-        //padding-right: 12px;
         width: 100%;
     }
 
@@ -149,10 +144,9 @@ section#landing
     flex-direction: column;
     justify-content: center;
     position: relative;
-    //min-height: 400px;
-    //height: 100dvh;
-    //position: relative;
-    min-height: 80dvh;
+    height: 100%;
+    //max-height: 80dvh;
+    max-height: calc(100dvh - 100px);
 
     &:after
     {
@@ -163,12 +157,7 @@ section#landing
         bottom: 0;
         left: 0;
         backdrop-filter: blur(2px) brightness(15%);
-        //backdrop-filter: blur(400px);
         z-index: 0;
-        //background-blend-mode: multiply;
-        //mix-blend-mode: multiply;
-        //background-color: #f368e0;
-        //background-image: linear-gradient(315deg, #f368e0 0%, #d3d3d3 74%);
 
     }
 
@@ -190,14 +179,12 @@ section#landing
 
     img
     {
-        //width: 260px;
         width: 290px;
         margin-bottom: 13px;
     }
 
     p
     {
-        //max-width: 350px;
         font-size: 1.1rem;
         font-weight: 400 !important;
         //font-family: $cabin;
@@ -214,7 +201,6 @@ section#landing
         color: $pink;
         padding: 8px;
         margin-top: 50px;
-        //max-width: 300px;
         text-transform: uppercase;
         letter-spacing: 1px;
         cursor: pointer;
@@ -228,15 +214,9 @@ section#landing
 
     #down-chevron {
         position: absolute;
-        //right: 0;
-        //bottom: 30px;
-        //left: 0;
-        //left: 0;
         margin-bottom: 25px;
         width: 45px;
         aspect-ratio: 1;
-        //height: 100px;
-        //background-color: red;
         background-image: url("/assets/icons/downchevron.svg");
         background-size: contain;
         background-position: center;
@@ -261,7 +241,6 @@ section#about
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 17px;
-        //justify-content: space-around;
 
         button {
             background-color: $pink;
@@ -275,8 +254,6 @@ section#about
             display: flex;
             justify-content: space-between;
             align-items: center;
-            //margin: 0 5px;
-            //box-shadow: 4px 3px white;
 
             &#download-button {
                 span.button-icon {
@@ -292,17 +269,11 @@ section#about
 
 
             span.button-icon {
-                //float: left;
-                //width: auto;
-                //height: 100%;
-                //width: 30px;
-                //width: auto;
                 min-width: 100%;
                 height: 100%;
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
-                //float: right;
             }
         }
     }
@@ -340,13 +311,8 @@ section#why
 section#bigger-picture
 {
     align-items: center;
-    //display: flex;
-    //flex-direction: column;
-    //background-color: red;
 
     .section-content {
-        //background-color: orange;
-        //width: fit-content;
         align-items: center;
     }
 
@@ -354,19 +320,9 @@ section#bigger-picture
     {
         display: flex;
         justify-content: center;
-        //justify-content: f lex-start;
         align-items: center;
         margin: 20px 0;
-        //background-color: green;
-        //width: fit-content;
-        //width: 100%;
-        //max-width: auto;
-        //width: auto;
-
-
         max-width: fit-content;
-
-
 
         .icon
         {
@@ -533,16 +489,20 @@ section#inspiration
 
 footer
 {
-    border-top: 1px solid rgba($white, 0.2);
+    border-top: 1px solid rgba($white, 0.3);
     width: 100%;
-    padding: 15px;
+    //padding: 15px;
+    //padding: 15px 15px 15px 15px;
+    padding: 15px 17px;
+    //margin-top: 100px;
     color: $dim-white;
     font-size: .9rem;
+
+    //min-height: 70px;
 
     a
     {
         color: inherit;
-
 
         &:hover
         {

@@ -128,7 +128,8 @@ section#landing {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  min-height: 80dvh;
+  height: 100%;
+  max-height: calc(100dvh - 100px);
 }
 section#landing:after {
   content: "";
@@ -329,9 +330,9 @@ section#inspiration .section-content p a {
 }
 
 footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
-  padding: 15px;
+  padding: 15px 17px;
   color: rgb(229.5, 229.5, 229.5);
   font-size: 0.9rem;
 }
