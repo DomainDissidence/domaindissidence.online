@@ -4,11 +4,20 @@ const CREATE_WEBSITE_URL = "https://github.com/rynstwrt/DomainDissidence/release
 const GUIDE_URL = "https://github.com/rynstwrt/DomainDissidence/wiki";
 
 
-const buttonIdUrlDict = {
+let buttonIdUrlDict = {
     "create-website-button": CREATE_WEBSITE_URL,
     // "guide-button": GUIDE_URL
     "guide-buttfon": GUIDE_URL
 };
+
+const onClickFunc = COMING_SOON_MODE ? window.alert : window.open
+// const onClickFunc = url => !COMING_SOON_MODE ? window.alert("Coming soon!") : window.open(url);
+
+// window.open("asdf", "_blank")
+// const onClickFunc = (targetFunc, )
+// if (COMING_SOON_MODE)
+//     Object.keys(buttonIdUrlDict)
+//           .forEach(key => buttonIdUrlDict[key] = -1);
 
 
 // function onClick(url) {
@@ -23,31 +32,28 @@ function onClick(event) {
     const url = buttonIdUrlDict[event.target.id];
     console.debug(url);
 }
+
+
 // console.log(buttonIdUrlDict["asdf"])
 
-document.querySelectorAll("#landing button");
+document.querySelectorAll("#landing button")
+        .forEach(btn => btn.addEventListener("click", () => {
+            const url = buttonIdUrlDict[btn.id];
+            // const param = COMING_SOON_MODE ? "Coming soon!" : url
+            // const param = url ?? -1;
+            // console.debug(param)
 
-// document.querySelectorAll("#landing button")
-//         .forEach(btn => btn.addEventListener("click", event => {
-//             // alert(event.target.id);
-//             const buttonId = event.target.id;
-//             if (buttonId in buttonIdUrlDict)
-//                 alert("asdf")
-//         }));
-// document.querySelectorAll("#landing button")
-//         .forEach(btn => btn.addEventListener("click", onClick));
+            url && onClickFunc(COMING_SOON_MODE ? "Coming soon" : url);
 
-// [...document.querySelectorAll("#landing button")]
-//     .filter(btn => btn.id in buttonIdUrlDict)
-//     .forEach(btn => btn.addEventListener("click", onClick));
 
-// $("#landing button").on("click", function () { console.log($(this)) });
-// $("#landing button").val());
-// $("#landing button").on("click", function () {
-//     console.log($(this).at(0))
-// });
+            // onClickFunc()
+            // onClickFunc.bind()
+            // onClick2.bind(url ?? )
 
-    // .forEach(console.log)
+            // url && alert(url);
+}));
+
+// onClickFunc();
 
 
 // document.querySelector("#create-website-button")
