@@ -1,1 +1,1 @@
-particlesJS.load("landing", "assets/json/particles.json");
+particlesJS.load("particles", "assets/json/particles.json");
