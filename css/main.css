@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Mozilla+Text:wght@200..700&family=Outfit:wght@100..900&display=swap");
+:root {
+  --ddtheme-pink: #f75590;
+}
+
 @font-face {
   font-family: "Gill Sans Extra Condensed Bold";
   font-weight: bold;
@@ -196,7 +200,7 @@ section#landing img {
 }
 section#landing .section-content {
   position: relative;
-  backdrop-filter: blur(5px) brightness(74%);
+  backdrop-filter: blur(5px) brightness(87%) contrast(106%);
   background-blend-mode: multiply;
   padding: 35px 25px;
   box-sizing: content-box;
@@ -217,7 +221,7 @@ section#landing .section-content:before {
   right: 0;
   bottom: 0;
   left: 0;
-  box-shadow: 8px 7px 5px rgba(0, 0, 0, 0.4), -3px -2px 2px rgba(255, 255, 255, 0.05);
+  box-shadow: 4px 0 7px rgba(0, 0, 0, 0.7), -3px -2px 2px rgba(255, 255, 255, 0.03);
   pointer-events: none;
 }
 section#landing p {
@@ -261,18 +265,18 @@ section#landing #landing-buttons button:not(:first-of-type) {
     flex: unset;
   }
 }
-section#landing #down-chevron {
+section#landing #chevron-container {
   position: absolute;
-  margin-bottom: 25px;
-  width: 45px;
-  aspect-ratio: 1;
-  background-image: url("/assets/icons/downchevron.svg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  stroke: #FFF !important;
-  fill: #FFF !important;
-  animation: bounce 1s infinite ease-in-out alternate;
+  bottom: 15px;
+  width: 50px;
+  height: auto;
+  aspect-ratio: 2/1.5;
+  margin-bottom: 10px;
+}
+section#landing #chevron-container svg#down-chevron {
+  object-fit: fill;
+  min-width: 100%;
+  height: 100%;
 }
 
 section#about {

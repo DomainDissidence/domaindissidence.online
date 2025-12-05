@@ -15,9 +15,10 @@
     <link rel="stylesheet" type="text/css" href="./css/main.css">
 
     <!-- SCRIPTS  -->
+    <!-- <script src="js/lib/anime.js"></script> -->
     <script src="js/buttons.js" defer></script>
     <script src="js/lib/particlesjs/particles.min.js"></script>
-    <script src="js/landing-particles.js" defer></script>
+    <script type="module" src="js/landing-animations.js" defer></script>
 </head>
 <body>
 
@@ -41,7 +42,23 @@
         </div>
     </div>
 
-    <div id="down-chevron"></div>
+    <div id="chevron-container">
+
+        <svg id="down-chevron"
+             data-slot="icon"
+             aria-hidden="true"
+             stroke-width="1.1"
+             fill="none"
+             stroke="currentColor"
+             viewBox="0 0 24 24"
+             preserveAspectRatio="none"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  stroke-linecap="square"
+                  stroke-linejoin="miter">
+            </path>
+        </svg>
+    </div>
 </section>
 
 
@@ -156,7 +173,10 @@
 
 <!-- FOOTER -->
 <footer>
-    <p><a href="https://rynstew.art" target="_blank">Ryn Stewart</a> 2025 - <i>DomainDissidence</i>.</p>
+    <p>
+        <a href="https://rynstew.art" target="_blank">Ryn Stewart</a> 2025 -
+        <i>DomainDissidence</i>.
+    </p>
 </footer>
 
 </body>
