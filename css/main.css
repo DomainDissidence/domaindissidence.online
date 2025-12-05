@@ -15,7 +15,7 @@
   font-style: normal;
 }
 
-.outfit-font-style, section#why .quadrant-group .quadrant h4 {
+.outfit-font-style, body, section#landing #landing-buttons button, section#why .quadrant-group .quadrant h4 {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -33,7 +33,7 @@
   font-style: normal;
 }
 
-.cabin-font-style, body, section .header {
+.cabin-font-style, section .header {
   font-family: "Cabin", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -65,6 +65,10 @@ body {
   background-color: #000;
   color: #FFF;
 }
+body {
+  font-weight: 300;
+}
+
 a {
   color: #f75590;
   text-decoration: underline;
@@ -133,6 +137,10 @@ section .subheader {
   font-size: 1.4rem;
   margin-bottom: 3px;
   letter-spacing: 2px;
+}
+section p {
+  font-size: 1.1rem;
+  font-weight: 200;
 }
 
 section#landing {
@@ -206,9 +214,9 @@ section#landing .section-content:before {
   pointer-events: none;
 }
 section#landing p {
-  font-size: 1.1rem;
-  font-weight: 400 !important;
-  text-wrap: balance;
+  font-size: 1.2rem;
+  text-wrap: pretty;
+  font-weight: 200;
 }
 section#landing #landing-buttons {
   margin-top: 50px;
@@ -224,6 +232,9 @@ section#landing #landing-buttons button {
   letter-spacing: 1px;
   cursor: pointer;
   transition: background-color 0.07s ease-out, color 0.07s ease-out;
+}
+section#landing #landing-buttons button {
+  font-weight: 300;
 }
 @media screen and (min-width: 576px) {
   section#landing #landing-buttons button {
@@ -258,14 +269,14 @@ section#landing #down-chevron {
 }
 
 section#about p {
-  margin-bottom: 13px;
+  margin: 12px 0;
 }
 
 section#why .quadrant-group {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: auto auto;
-  grid-gap: 10px;
+  grid-gap: 9px;
 }
 section#why .quadrant-group .quadrant h4 {
   font-weight: 700;
