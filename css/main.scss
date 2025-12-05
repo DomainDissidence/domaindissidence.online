@@ -3,16 +3,20 @@
 @use "partials/fonts" as *;
 @use "partials/breakpoints" as *;
 @use "partials/constants" as *;
+@use "sass:map";
 
 
 @keyframes bounce {
-    0% { bottom: 0; }
-    100% { bottom: 5px; }
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: 5px;
+    }
 }
 
 
-*
-{
+* {
     margin: 0;
     padding: 0;
     border: none;
@@ -30,14 +34,12 @@
 
 
 
-html, body
-{
+html, body {
     height: 100%;
 }
 
 
-body
-{
+body {
     background-color: $black;
     color: $white;
     @include set-font("outfit");
@@ -45,22 +47,19 @@ body
 }
 
 
-a
-{
+a {
     color: $pink;
     text-decoration: underline;
     text-decoration-style: dotted;
     font-family: inherit;
 
-    &:hover
-    {
+    &:hover {
         text-decoration: underline;
     }
 }
 
 
-.icon
-{
+.icon {
     stroke: $white;
     stroke-width: 0.5px;
     background-size: contain;
@@ -77,7 +76,8 @@ a
     bottom: 0;
     left: 0;
     z-index: -1;
-    overflow: hidden;
+    //overflow: hidden;
+    overflow-x: hidden;
     pointer-events: none;
 
     #background-image {
@@ -87,7 +87,7 @@ a
         bottom: 0;
         left: 0;
 
-        $gradient: linear-gradient(to bottom,rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.5) 100%);
+        $gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.5) 100%);
 
         background: $gradient, url("/assets/img/landing.jpg");
         background-size: cover;
@@ -95,7 +95,7 @@ a
         background-attachment: fixed;
         background-position: center;
 
-        &:after  {
+        &:after {
             content: "";
             position: absolute;
             top: 0;
@@ -120,8 +120,7 @@ a
 
 
 
-section
-{
+section {
     min-height: 330px;
     width: 100%;
     display: flex;
@@ -130,29 +129,148 @@ section
     padding: 40px;
     position: relative;
 
+
     &:not(#landing) {
         background-color: $black;
+        position: relative;
+        //$bshadow1: 0 5px 5px rgba($black, 0.3);
+        //$bshadow2: set-nth($bshadow1, 2, calc(nth($bshadow1, 2) * -1));
+        //box-shadow: $bshadow1, $bshadow2;
+        //mask: linear-gradient(to bottom, rgba(#000, 0) 0%, rgba(#000, 1) 5%, rgba(#000, 1) 95%, rgba(#000, 0));
+        //box-shadow: 0 10px 5px rgba(red, 1);
 
-        &:after {
-            content: "";
-            position: absolute;
+        &:before {
+          content: "";
+          //display: block;
+          position: absolute;
+            background-color: black;
             top: 0;
-            right: 0;
             bottom: 0;
+            right: 0;
             left: 0;
-            max-width: $section-content-max-width + 100px;
-            border-bottom: 1px solid rgba(color.adjust($black, $lightness: 20%), .5);
-            margin: auto;
+          pointer-events: none;
+            //z-index: -10;
+        //mask: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 5%, rgba(#000, 0) 95%, rgba(#000, 1));
+        mask: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 5%, rgba(#000, 0) 95%, rgba(#000, 1));
+
         }
+
+        //&:nth-of-type(1) {
+        //    z-index: 10;
+        //    background-color: red !important;
+        //    border: 1px solid red;
+        //
+        //}
+        //    &:before {
+        ////border: 1px solid green;
+        ////    content: "";
+        //    position: absolute;
+        //    top: 0;
+        //    right: 0;
+        //    bottom: 0;
+        //    left: 0;
+        //        //box-shadow: 0 6px 5px rgba;
+        //     box-shadow: 0 4px 5px rgba($black, .3);
+        //    //z-index: 10;
+        //
+        ////overflow-x: hidden;
+        //
+        //}
+
+
+        &:nth-of-type(odd) {
+            //background-color: $black;
+            //$bshadow1: 0 5px 5px rgba($black, 0.3);
+            //$bshadow2: set-nth($bshadow1, 2, calc(nth($bshadow1, 2) * -1));
+            //box-shadow: $bshadow1, $bshadow2;
+            //$bg-color: rgba($black, 0.4);
+
+            //$c1: $black;
+            //$c2: rgba($black, 0.4);
+            //background: linear-gradient(to bottom, $c2 0%, $c1 5%, $c1 95%, $c2 100%);
+            //background: linear-gradient(to bottom, $black 90%, $bg-color 100%)
+            z-index: 2;
+        }
+
+
+        &:nth-of-type(even) {
+            background-color: rgba($black, 0.4);
+            backdrop-filter: blur(7px);
+
+            //$bg-color: rgba($black, 0.4);
+            //background: linear-gradient(to bottom, $bg-color 90%, $black 100%)
+
+
+            //$bshadow1: 0 5px 5px rgba($black, 0.3);
+            //$bshadow2: set-nth($bshadow1, 2, calc(nth($bshadow1, 2) * -1));
+            //box-shadow: $bshadow1, $bshadow2;
+            //background: linear-gradient(to bottom, rgba(black, 0) 0%, rgba(black, 1) 100%);
+
+            //mask: linear-gradient(to bottom, rgba(#000, 0) 0%, rgba(#000, 1) 5%, rgba(#000, 1) 95%, rgba(#000, 0));
+        }
+        //&:after {
+        //    content: "";
+        //    position: absolute;
+        //    top: 0;
+        //    right: 0;
+        //    bottom: 0;
+        //    left: 0;
+        // box-shadow: 0 10px 5px rgba(red, 1);
+        //    //z-index: 10;
+        //
+        //
+        //}
+        //&:nth-of-type(odd):before {
+        //    //content: "";
+        //    position: absolute;
+        //    top: -10px;
+        //
+        //    //top: 0;
+        //    right: 0;
+        //    //bottom: -100px;
+        //    bottom: 0;
+        //    left: 0;
+        //    overflow: hidden;
+        //
+        //
+        //    background-color: black;
+        //    mask: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 5%, rgba(#000, 0) 95%, rgba(#000, 1));
+        //
+        //
+        //    //mask: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 5%, rgba(#000, 0) 95%, rgba(#000, 1));
+        //
+        //    //--mask: linear-gradient(to bottom,
+        //    //        rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) 40%,
+        //    //        rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 0
+        //    //) 100% 50% / 100% 100% repeat-x;
+        //    //
+        //    ////border: 1px #d8d8d8 dashed;
+        //    //font: 2em/1.6em Arial;
+        //    //-webkit-mask: var(--mask);
+        //    //mask: var(--mask);
+        //
+        //
+        //    //$bshadow1: 0 6px 8px rgba($black, 0.5);
+        //    //$bshadow2: set-nth($bshadow1, 2, calc(nth($bshadow1, 2) * -1));
+        //    //box-shadow: $bshadow1, $bshadow2;
+        //
+        //    & {
+        //        //background-color: red;
+        //    }
+        //
+        //    //z-index: 4;
+        //    //z-index: -1;
+        //
+        //}
+
+
     }
-    
-    .section-content, .header
-    {
+
+    .section-content, .header {
         max-width: $section-content-max-width;
     }
 
-    .section-content
-    {
+    .section-content {
         //max-width: 500px;
         display: flex;
         flex-direction: column;
@@ -162,8 +280,7 @@ section
         //height: 100%;
     }
 
-    .header
-    {
+    .header {
         @include set-font("cabin");
         font-weight: 800;
         font-size: 2rem;
@@ -176,8 +293,7 @@ section
         width: 100%;
     }
 
-    .subheader
-    { /* Pink text subheaders */
+    .subheader { /* Pink text subheaders */
         @include set-font("mozilla-text");
         font-weight: 800;
         text-transform: uppercase;
@@ -195,8 +311,7 @@ section
 }
 
 
-section#landing
-{
+section#landing {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -204,8 +319,7 @@ section#landing
     height: 100dvh;
     overflow: hidden;
 
-    img
-    {
+    img {
         width: 220px;
         margin-bottom: 13px;
 
@@ -252,8 +366,7 @@ section#landing
         }
     }
 
-    p
-    {
+    p {
         font-size: 1.2rem;
         text-wrap: pretty;
         font-weight: 200;
@@ -316,35 +429,28 @@ section#landing
 }
 
 
-section#about
-{
-    p
-    {
+section#about {
+    p {
         margin: 12px 0;
         //margin-bottom: 17px;
     }
 }
 
 
-section#why
-{
-    .quadrant-group
-    {
+section#why {
+    .quadrant-group {
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: auto auto;
         grid-gap: 9px;
 
-        .quadrant
-        {
-            h4
-            {
+        .quadrant {
+            h4 {
                 @include set-font("outfit");
                 font-weight: 700;
                 font-size: 2.5rem;
 
-                &:after
-                {
+                &:after {
                     content: ".";
                     color: $pink;
                 }
@@ -354,46 +460,39 @@ section#why
 }
 
 
-section#bigger-picture
-{
+section#bigger-picture {
     align-items: center;
 
     .section-content {
         align-items: center;
     }
 
-    .bigger-picture-row
-    {
+    .bigger-picture-row {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 20px 0;
         max-width: fit-content;
 
-        .icon
-        {
+        .icon {
             height: $goal-icon-size;
             min-width: $goal-icon-size;
             margin-right: 12px;
 
-            &#circled-x
-            {
+            &#circled-x {
                 background-image: url("/assets/icons/circledx.svg");
             }
 
-            &#exclamation-shield
-            {
+            &#exclamation-shield {
                 background-image: url("/assets/icons/exclamationshield.svg");
             }
 
-            &#lightning
-            {
+            &#lightning {
                 background-image: url("/assets/icons/lightning.svg");
             }
         }
 
-        .bigger-picture-text
-        {
+        .bigger-picture-text {
             @include at-breakpoint($sm) {
                 width: 70%;
             }
@@ -406,25 +505,21 @@ section#bigger-picture
 }
 
 
-section#goals
-{
+section#goals {
 
-    .section-content
-    {
+    .section-content {
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 30px 5px;
         place-items: flex-start center;
         margin-top: 10px;
 
-        @include at-breakpoint($sm)
-        {
+        @include at-breakpoint($sm) {
             grid-template-columns: 1fr 1fr 1fr;
         }
     }
 
-    .goal
-    {
+    .goal {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -432,24 +527,20 @@ section#goals
         text-align: center;
         text-wrap: pretty;
 
-        .icon
-        {
+        .icon {
             width: $goal-icon-size;
             height: $goal-icon-size;
             margin-bottom: 4px;
 
-            &#presentation
-            {
+            &#presentation {
                 background-image: url("/assets/icons/presentation.svg");
             }
 
-            &#checked-box
-            {
+            &#checked-box {
                 background-image: url("/assets/icons/checkedbox.svg");
             }
 
-            &#community
-            {
+            &#community {
                 background-image: url("/assets/icons/community.svg");
             }
         }
@@ -457,29 +548,24 @@ section#goals
 }
 
 
-section#inspiration
-{
+section#inspiration {
     //background-color: transparent !important;
 
-    .section-content
-    {
+    .section-content {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
 
-        img
-        {
+        img {
             border-radius: 3px;
             height: 150px;
         }
 
-        p
-        {
+        p {
             margin-left: 20px;
 
-            a
-            {
+            a {
                 font-style: italic;
             }
         }
@@ -487,8 +573,7 @@ section#inspiration
 }
 
 
-footer
-{
+footer {
     //border-top: 1px solid rgba($white, 0.3);
     width: 100%;
     //padding: 15px;
@@ -508,16 +593,14 @@ footer
         @include set-font("inter");
         font-weight: 100;
 
-        a
-        {
+        a {
             color: inherit;
             font-family: inherit;
             text-decoration: none;
             font-weight: 200;
             transition: color .05s ease-out;
 
-            &:hover
-            {
+            &:hover {
                 text-decoration: none;
                 //text-decoration-style: solid;
                 color: $pink;
