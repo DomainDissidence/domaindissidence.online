@@ -58,9 +58,12 @@ a
 }
 
 
-a, button
+//a, button
+a
 {
-    //font-family: inherit;
+    font-family: inherit;
+    //text-decoration: inherit;
+
 }
 
 
@@ -86,7 +89,7 @@ section
     position: relative;
 
 
-    &:not(#landing):not(:last-of-type):after {
+    &:not(#landing):after {
         content: "";
         position: absolute;
         top: 0;
@@ -197,22 +200,16 @@ section#landing
 
     img
     {
-        width: 290px;
+        width: 220px;
         margin-bottom: 13px;
+
+        @include at-breakpoint($md) {
+            width: 290px;
+        }
     }
 
 
     .section-content {
-        //background-color: red;
-        //box-shadow: 20px 10px $pink;
-        //box-shadow: 10px 5px $pink;
-        //margin: 10px 0 0 10px;
-        //margin-right: 10px;
-
-        //box-shadow:
-        //border-width: 1px 0 0 1px;
-        //border-color: $dim-white;
-        //border-style: solid;
         position: relative;
         backdrop-filter: blur(3px) brightness(85%);
         //box-sizing: content-box;
@@ -268,7 +265,8 @@ section#landing
         button {
             background-color: transparent;
             border: 1px solid $pink;
-            border-radius: 5px;
+            //border-radius: 5px;
+            //border-radius: 2px;
             color: $pink;
             padding: 8px 30px;
             //margin-top: 50px;
@@ -517,7 +515,7 @@ section#inspiration
 
         img
         {
-            border-radius: 5px;
+            border-radius: 3px;
             height: 150px;
         }
 
@@ -536,14 +534,18 @@ section#inspiration
 
 footer
 {
-    border-top: 1px solid rgba($white, 0.3);
+    //border-top: 1px solid rgba($white, 0.3);
     width: 100%;
     //padding: 15px;
     //padding: 15px 15px 15px 15px;
-    padding: 15px 17px;
+    padding: 20px 17px 16px 17px;
     //margin-top: 100px;
     color: $dim-white;
-    font-size: .9rem;
+    font-size: .77rem;
+    text-align: center;
+    @include set-font("inter");
+    font-weight: 100;
+
 
     //min-height: 70px;
 

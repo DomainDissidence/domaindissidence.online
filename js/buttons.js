@@ -1,13 +1,21 @@
-// const DOWNLOAD_URL = "https://github.com/rynstwrt/DomainDissidence/releases";
-// const USAGE_URL = "https://github.com/rynstwrt/DomainDissidence/wiki";
-//
-//
-// const aboutSection = document.querySelector("#about");
-// document.querySelector("#learn-more-button").addEventListener("click", () =>
-//     aboutSection.scrollIntoView({ behavior: "smooth"}));
-//
-// document.querySelector("#download-button").addEventListener("click", () =>
-//     window.open(DOWNLOAD_URL, "_blank"));
-//
-// document.querySelector("#usage-button").addEventListener("click", () =>
-//     window.open(USAGE_URL, "_blank"));
+const COMING_SOON_MODE = true;
+
+const CREATE_WEBSITE_URL = "https://github.com/rynstwrt/DomainDissidence/releases";
+const GUIDE_URL = "https://github.com/rynstwrt/DomainDissidence/wiki";
+
+
+function onClick(url) {
+    if (COMING_SOON_MODE)
+        return alert("Coming soon!");
+
+    window.open(url, "_blank");
+}
+
+
+document.querySelector("#create-website-button")
+        .addEventListener("click", () =>
+            onClick(CREATE_WEBSITE_URL));
+
+document.querySelector("#guide-button")
+        .addEventListener("click", () =>
+            onClick(GUIDE_URL));

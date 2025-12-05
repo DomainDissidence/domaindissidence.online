@@ -9,7 +9,7 @@
   transform: scaleY(0.85);
 }
 
-.inter-font-style {
+.inter-font-style, footer {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -74,6 +74,10 @@ a:hover {
   text-decoration: underline;
 }
 
+a {
+  font-family: inherit;
+}
+
 .icon {
   stroke: #FFF;
   stroke-width: 0.5px;
@@ -91,7 +95,7 @@ section {
   padding: 40px;
   position: relative;
 }
-section:not(#landing):not(:last-of-type):after {
+section:not(#landing):after {
   content: "";
   position: absolute;
   top: 0;
@@ -167,8 +171,13 @@ section#landing canvas {
   pointer-events: none;
 }
 section#landing img {
-  width: 290px;
+  width: 220px;
   margin-bottom: 13px;
+}
+@media screen and (min-width: 768px) {
+  section#landing img {
+    width: 290px;
+  }
 }
 section#landing .section-content {
   position: relative;
@@ -208,7 +217,6 @@ section#landing #landing-buttons {
 section#landing #landing-buttons button {
   background-color: transparent;
   border: 1px solid #f75590;
-  border-radius: 5px;
   color: #f75590;
   padding: 8px 30px;
   text-transform: uppercase;
@@ -344,7 +352,7 @@ section#inspiration .section-content {
   align-items: center;
 }
 section#inspiration .section-content img {
-  border-radius: 5px;
+  border-radius: 3px;
   height: 150px;
 }
 section#inspiration .section-content p {
@@ -355,11 +363,14 @@ section#inspiration .section-content p a {
 }
 
 footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
-  padding: 15px 17px;
+  padding: 20px 17px 16px 17px;
   color: rgb(229.5, 229.5, 229.5);
-  font-size: 0.9rem;
+  font-size: 0.77rem;
+  text-align: center;
+}
+footer {
+  font-weight: 100;
 }
 footer a {
   color: inherit;
