@@ -9,7 +9,7 @@
   transform: scaleY(0.85);
 }
 
-.inter-font-style, footer {
+.inter-font-style, footer p {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -369,14 +369,19 @@ footer {
   font-size: 0.77rem;
   text-align: center;
 }
-footer {
+footer p {
   font-weight: 100;
 }
-footer a {
+footer p a {
   color: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  font-weight: 200;
+  transition: color 0.05s ease-out;
 }
-footer a:hover {
-  text-decoration-style: solid;
+footer p a:hover {
+  text-decoration: none;
+  color: #f75590;
 }
 
 /*# sourceMappingURL=main.css.map */
