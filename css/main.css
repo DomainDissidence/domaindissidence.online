@@ -129,7 +129,6 @@ section#landing {
   justify-content: center;
   position: relative;
   height: 100%;
-  max-height: calc(100dvh - 100px);
 }
 section#landing:after {
   content: "";
@@ -162,21 +161,29 @@ section#landing p {
   font-weight: 400 !important;
   text-wrap: balance;
 }
-section#landing #learn-more-button {
+section#landing #landing-buttons {
+  margin-top: 50px;
+  display: flex;
+}
+section#landing #landing-buttons button {
   background-color: transparent;
   border: 1px solid #f75590;
   border-radius: 5px;
   color: #f75590;
-  padding: 8px;
-  margin-top: 50px;
+  padding: 8px 30px;
   text-transform: uppercase;
+  text-align: center;
   letter-spacing: 1px;
   cursor: pointer;
   transition: background-color 0.11s ease-out, color 0.11s ease-out;
+  width: max-content;
 }
-section#landing #learn-more-button:hover {
+section#landing #landing-buttons button:hover {
   background-color: #f75590;
   color: #FFF;
+}
+section#landing #landing-buttons button:not(:first-of-type) {
+  margin-left: 10px;
 }
 section#landing #down-chevron {
   position: absolute;
@@ -194,38 +201,6 @@ section#landing #down-chevron {
 
 section#about p {
   margin-bottom: 13px;
-}
-section#about #buttons {
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 17px;
-}
-section#about #buttons button {
-  background-color: #f75590;
-  color: #FFF;
-  padding: 7px 10px;
-  border-radius: 2px;
-  cursor: pointer;
-  flex: 1;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-section#about #buttons button#download-button span.button-icon {
-  background-image: url("/assets/icons/download.svg");
-}
-section#about #buttons button#usage-button span.button-icon {
-  background-image: url("/assets/icons/infocircle.svg");
-}
-section#about #buttons button span.button-icon {
-  min-width: 100%;
-  height: 100%;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 section#why .quadrant-group {
