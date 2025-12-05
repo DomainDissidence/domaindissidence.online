@@ -66,5 +66,17 @@
             }
         }
     },
+    "interactivity": {
+        "detect_on": "window",
+        "events": {
+            "onhover": {
+                "enable": false
+            },
+            "onclick": {
+                "enable": false
+            },
+            "resize": true
+        }
+    },
     "retina_detect": true
 }

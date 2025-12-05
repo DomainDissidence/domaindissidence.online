@@ -89,6 +89,18 @@ section {
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  position: relative;
+}
+section:not(#landing):not(:last-of-type):after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 700px;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+  margin: auto;
 }
 section .section-content, section .header {
   max-width: 600px;
@@ -129,6 +141,7 @@ section#landing {
   justify-content: center;
   position: relative;
   height: 100%;
+  overflow: hidden;
 }
 section#landing:after {
   content: "";
@@ -141,7 +154,7 @@ section#landing:after {
   z-index: 0;
 }
 section#landing > :not(canvas) {
-  z-index: 2;
+  z-index: 3;
 }
 section#landing canvas {
   position: absolute;
@@ -150,11 +163,38 @@ section#landing canvas {
   bottom: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.2;
+  opacity: 0.12;
+  pointer-events: none;
 }
 section#landing img {
   width: 290px;
   margin-bottom: 13px;
+}
+section#landing .section-content {
+  position: relative;
+  backdrop-filter: blur(3px) brightness(85%);
+  padding: 35px 25px;
+  box-sizing: content-box;
+  background-blend-mode: multiply;
+  box-shadow: 8px 5px #f75590;
+  margin-right: 8px;
+}
+@media screen and (min-width: 768px) {
+  section#landing .section-content {
+    box-shadow: 12px 5px #f75590;
+    margin-right: 12px;
+    padding: 40px 70px;
+  }
+}
+section#landing .section-content:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 8px 7px 5px rgba(0, 0, 0, 0.4), -3px -2px 2px rgba(255, 255, 255, 0.05);
+  pointer-events: none;
 }
 section#landing p {
   font-size: 1.1rem;
@@ -175,8 +215,12 @@ section#landing #landing-buttons button {
   text-align: center;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: background-color 0.11s ease-out, color 0.11s ease-out;
-  width: max-content;
+  transition: background-color 0.07s ease-out, color 0.07s ease-out;
+}
+@media screen and (min-width: 576px) {
+  section#landing #landing-buttons button {
+    min-width: 180px;
+  }
 }
 section#landing #landing-buttons button:hover {
   background-color: #f75590;
@@ -184,6 +228,12 @@ section#landing #landing-buttons button:hover {
 }
 section#landing #landing-buttons button:not(:first-of-type) {
   margin-left: 10px;
+  flex: 1;
+}
+@media screen and (min-width: 576px) {
+  section#landing #landing-buttons button:not(:first-of-type) {
+    flex: unset;
+  }
 }
 section#landing #down-chevron {
   position: absolute;
@@ -245,7 +295,7 @@ section#bigger-picture .bigger-picture-row .icon#exclamation-shield {
 section#bigger-picture .bigger-picture-row .icon#lightning {
   background-image: url("/assets/icons/lightning.svg");
 }
-@media screen and (min-width: 570px) {
+@media screen and (min-width: 576px) {
   section#bigger-picture .bigger-picture-row .bigger-picture-text {
     width: 70%;
   }
@@ -260,7 +310,7 @@ section#goals .section-content {
   place-items: flex-start center;
   margin-top: 10px;
 }
-@media screen and (min-width: 570px) {
+@media screen and (min-width: 576px) {
   section#goals .section-content {
     grid-template-columns: 1fr 1fr 1fr;
   }

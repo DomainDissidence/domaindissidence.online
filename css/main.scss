@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "partials/colors" as *;
 @use "partials/fonts" as *;
-@use "partials/breakpoints" as bp;
+@use "partials/breakpoints" as *;
 @use "partials/constants" as *;
 
 
@@ -83,10 +83,27 @@ section
     flex-direction: column;
     align-items: center;
     padding: 40px;
+    position: relative;
+
+
+    &:not(#landing):not(:last-of-type):after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        max-width: $section-content-max-width + 100px;
+        border-bottom: 1px solid rgba(color.adjust($black, $lightness: 20%), .5);
+
+        //margin: 0 100px;
+        //box-sizing: border-box;
+        margin: auto;
+    }
 
     .section-content, .header
     {
-        max-width: 600px;
+        max-width: $section-content-max-width;
     }
 
     .section-content
@@ -146,6 +163,7 @@ section#landing
     height: 100%;
     //max-height: 80dvh;
     //max-height: calc(100dvh - 100px);
+    overflow: hidden;
 
     &:after
     {
@@ -162,7 +180,7 @@ section#landing
 
     & > :not(canvas)
     {
-        z-index: 2;
+        z-index: 3;
     }
 
     canvas
@@ -173,13 +191,61 @@ section#landing
         bottom: 0;
         left: 0;
         z-index: 1;
-        opacity: .2;
+        opacity: .12;
+        pointer-events: none;
     }
 
     img
     {
         width: 290px;
         margin-bottom: 13px;
+    }
+
+
+    .section-content {
+        //background-color: red;
+        //box-shadow: 20px 10px $pink;
+        //box-shadow: 10px 5px $pink;
+        //margin: 10px 0 0 10px;
+        //margin-right: 10px;
+
+        //box-shadow:
+        //border-width: 1px 0 0 1px;
+        //border-color: $dim-white;
+        //border-style: solid;
+        position: relative;
+        backdrop-filter: blur(3px) brightness(85%);
+        //box-sizing: content-box;
+        padding: 35px 25px;
+        box-sizing: content-box;
+        background-blend-mode: multiply;
+
+        @mixin set-box-shadow($x, $y, $color: $pink) {
+            box-shadow: $x $y $color;
+            margin-right: $x;
+        }
+
+        @include set-box-shadow(8px, 5px);
+
+        @include at-breakpoint($md) {
+            @include set-box-shadow(12px, 5px);
+            padding: 40px 70px;
+            //box-shadow: 20px 10px $pink;
+            //margin-right: 100px;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            $shadow1: 8px 7px 5px rgba($black, 0.4);
+            $shadow2: -3px -2px 2px rgba($white, 0.05);
+            box-shadow: $shadow1, $shadow2;
+            pointer-events: none;
+        }
     }
 
     p
@@ -210,14 +276,11 @@ section#landing
             text-align: center;
             letter-spacing: 1px;
             cursor: pointer;
-            transition: background-color .11s ease-out, color .11s ease-out;
-            //max-width
+            transition: background-color .07s ease-out, color .07s ease-out;
 
-            //max-width: 100px;
-
-            //min-width: 200px;
-            width: max-content;
-            //width: 100%;
+            @include at-breakpoint($sm) {
+                min-width: 180px;
+            }
 
             &:hover {
                 background-color: $pink;
@@ -225,13 +288,13 @@ section#landing
 
             }
 
-            &:first-of-type {
-                //flex: 1;
-            }
-
             &:not(:first-of-type) {
                 margin-left: 10px;
-                //flex: 1;
+                flex: 1;
+
+                @include at-breakpoint($sm) {
+                    flex: unset;
+                }
             }
         }
     }
@@ -343,7 +406,8 @@ section#bigger-picture
 
             //max-width: fit-content;
 
-            @media screen and (min-width: bp.$bp1) {
+            //@media screen and (min-width: $bp1) {
+            @include at-breakpoint($sm) {
                 //max-width: calc(100% - ($bigger-picture-icon-size / 2));
 
                 width: 70%;
@@ -400,7 +464,7 @@ section#goals
         place-items: flex-start center;
         margin-top: 10px;
 
-        @media screen and (min-width: 570px)
+        @include at-breakpoint($sm)
         {
             grid-template-columns: 1fr 1fr 1fr;
         }
