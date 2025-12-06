@@ -1,18 +1,7 @@
 @use "sass:string";
+@use "sass:list";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Mozilla+Text:wght@200..700&family=Outfit:wght@100..900&display=swap");
 
-
-@font-face {
-    font-family: "Gill Sans Extra Condensed Bold";
-    font-weight: bold;
-    src: url("../../assets/fonts/GillSansExtraCondensedBold.otf") format("opentype");
-}
-
-
-.gill-sans-font-style {
-    font-family: "Gill Sans Extra Condensed Bold", sans-serif;
-    transform: scaleY(.85);
-}
 
 
 .inter-font-style {
@@ -32,28 +21,26 @@
 
 
 .mozilla-text-font-style {
-  font-family: "Mozilla Text", sans-serif;
-  font-optical-sizing: auto;
-  
-  font-style: normal;
+    font-family: "Mozilla Text", sans-serif;
+    font-optical-sizing: auto;
+
+    font-style: normal;
 }
 
 
 .jetbrains-mono-font-style {
-  font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
-  
-  font-style: normal;
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+
+    font-style: normal;
 }
 
 
 .cabin-font-style {
-  font-family: "Cabin", sans-serif;
-  font-optical-sizing: auto;
-  //
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
 }
 
 
@@ -61,4 +48,14 @@
     & {
         @extend .#{string.to-lower-case($name)}-font-style;
     }
+}
+
+
+$font-name-list: ("inter", "outfit", "mozilla-text", "jetbrains-mono", "cabin");
+@mixin set-font-by-index($idx) {
+    @include set-font(list.nth($font-name-list, $idx));
+}
+
+:export {
+    test: $font-name-list;
 }

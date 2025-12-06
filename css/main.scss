@@ -3,17 +3,8 @@
 @use "partials/fonts" as *;
 @use "partials/breakpoints" as *;
 @use "partials/constants" as *;
-@use "sass:map";
-
-
-@keyframes bounce {
-    0% {
-        bottom: 0;
-    }
-    100% {
-        bottom: 5px;
-    }
-}
+@use "sass:list";
+@use "sass:math";
 
 
 * {
@@ -21,15 +12,17 @@
     padding: 0;
     border: none;
     box-sizing: border-box;
-    font-size: 17px;
     scroll-behavior: smooth;
 }
 
 
-
-
 html, body {
     height: 100%;
+}
+
+
+html {
+    font-size: 17px;
 }
 
 
@@ -38,6 +31,10 @@ body {
     color: $white;
     @include set-font("outfit");
     font-weight: 300;
+}
+
+p {
+    //font-family: inherit ;
 }
 
 
@@ -68,170 +65,48 @@ a {
     right: 0;
     bottom: 0;
     left: 0;
-    //z-index: -1;
-    //overflow: hidden;
-    pointer-events: none;
-}
-
-
-#background-layers {
-    @include create-overlay("fixed");
-    //background-color: blue;
-    //position: relative;
-    //top: 0;
-    //right: 0;
-    //bottom: 0;
-    //left: 0;
-    //z-index: -1;
     overflow: hidden;
-    //overflow-x: hidden;
-    //pointer-events: none;
-
-    #image-layers {
-        //border: 3px solid red;
-        //box-sizing: border-box;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        //z-index: -2;
-        //width: 100%;
-        //height: 100%;
-        //background-color: blue;
-        //object-fit: cover;
-
-        #background-image {
-            box-shadow: inset 0 0 4px red;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 40% center;
-            //object-position: ;
-            //position: absolute;
-            //top: 0;
-            //right: 0;
-            //bottom: 0;
-            //left: 0;
-            //z-index: -2;
-            //background: url("/assets/img/landing.jpg");
-            //background-size: cover;
-            //background-repeat: no-repeat;
-            //background-attachment: fixed;
-            //background-attachment: local;
-            //background-position: 40% center;
-            //background-blend-mode: screen;
-            //background-blend-mode: lighten;
-            //background-blend-mode: multiply;
-            //mix-blend-mode: multiply;
-        }
-
-        #color-overlay {
-            //position: fixed;
-            //top: 0;
-            //right: 0;
-            //bottom: 0;
-            //left: 0;
-            //opacity: .15;
-            //z-index: -1;
-            background-color: red;
-            width: 100%;
-            height: 100%;
-            //z-index: 199;
-            //$galpha: 0.6;
-            //$gcolor1: rgba(255, 255, 255, $galpha);
-            //$gcolor2: rgba(255, 0, 183, $galpha);
-            //$gradient: linear-gradient(to top, $gcolor1 0%, $gcolor2 100%);
-            //background: $gradient;
-            //background-blend-mode: multiply;
-            //mix-blend-mode: multiply;
-
-            //background-blend-mode: multiply;
-            //mix-blend-mode: multiply;
-            //backdrop-filter: blur(5px) brightness(20%);
-            //mix-blend-mode: multiply;
-            //opacity: 0.6;
-            //background-blend-mode: multiply;
-            //mix-blend-mode: multiply;
-            //backdrop-filter: blur(5px) contrast(105%) brightness(0.6);
-
-        }
-
-
-
-        //#background-image {
-        //    //position: absolute;
-        //    //top: 0;
-        //    //right: 0;
-        //    //bottom: 0;
-        //    //left: 0;
-        //    z-index: -2;
-        //
-        //
-        //    $galpha: 0.6;
-        //    $gcolor1: rgba(255, 255, 255, $galpha);
-        //    $gcolor2: rgba(255, 0, 183, $galpha);
-        //    $gradient: linear-gradient(to bottom, $gcolor1 0%, $gcolor2 100%);
-        //
-        //    background: url("/assets/img/landing.jpg");
-        //    background-size: cover;
-        //    background-repeat: no-repeat;
-        //    //background-attachment: fixed;
-        //    //background-attachment: local;
-        //    //background-position: 40% center;
-        //    //background-blend-mode: screen;
-        //    //background-blend-mode: lighten;
-        //    //background-blend-mode: multiply;
-        //    //mix-blend-mode: multiply;
-        //
-        //
-        //
-        //    &:after {
-        //        content: "";
-        //        position: fixed;
-        //        top: 0;
-        //        right: 0;
-        //        bottom: 0;
-        //        left: 0;
-        //        z-index: -2;
-        //        //backdrop-filter: blur(3px) brightness(0.6);
-        //
-        //        //background-color: red;
-        //        //opacity: .5;
-        //        //backdrop-filter: blur(3px) brightness(30%);
-        //
-        //        //backdrop-filter: blur(5px) brightness(25%);
-        //
-        //        //$galpha: 0.6;
-        //        //$galpha: 1;
-        //        //$gcolor1: rgba(255, 255, 255, $galpha);
-        //        //$gcolor2: rgba(255, 0, 183, $galpha);
-        //        //$gradient: linear-gradient(to bottom, $gcolor1 0%,  $gcolor2 100%);
-        //        //background: $gradient;
-        //        //background-blend-mode: multiply;
-        //        //mix-blend-mode: multiply;
-        //        //opacity: 0.7;
-        //        //    backdrop-filter: blur(4px) brightness(.4) contrast(105%);
-        //        //backdrop-filter: blur(5px) contrast(105%) brightness(0.6);
-        //
-        //    }
-
-
-    }
+    pointer-events: none;
+    display: block;
 }
 
+
+#background-image {
+    @include create-overlay(fixed);
+    overflow: hidden;
+    z-index: -3;
+
+    $gradient-colors: ($pink, #FFF);
+    background: make-gradient(to bottom, $gradient-colors), url("/assets/img/landing.jpg") no-repeat center;
+    background-size: cover;
+
+    //mix-blend-mode: multiply;
+    background-blend-mode: overlay;
+    //filter: blur(5px);
+    filter: blur(2px) brightness(30%);
+
+    //&:after {
+    //    content: "";
+    //    @include create-overlay();
+    //    //backdrop-filter: blur(2px) brightness(.5);
+    //    //z-index: -2;
+    //    //background-color: black;
+    //    //background-color: rgba($black, 0.7);
+    //    //opacity: 0.85;
+    //    //mix-blend-mode: darken;
+    //}
+}
 
 
 #particles {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: .15;
-    //opacity: 0.25;
-    z-index: 0;
+    @include create-overlay(fixed);
+    z-index: -1;
+    opacity: .2;
 
+    canvas {
+        min-width: 100%;
+        min-height: 100%;
+    }
 }
 
 
@@ -243,25 +118,33 @@ section {
     align-items: center;
     padding: 40px;
     position: relative;
-
+    overflow: hidden;
 
     &:not(#landing) {
         background-color: $black;
         position: relative;
         //background-color: rgba($black, 0.4);
 
+        p {
+            //font-family: "Times New Roman", serif;
+            @include set-font("inter");
+            font-weight: 200;
+            font-stretch: normal;
+            //font-size: 1rem;
+            //letter-spacing: 0;
+        }
 
         &:nth-of-type(even) {
-            background-color: transparent;
-            //background-color: rgba($black, 0.3);
+            //background-color: transparent;
+            background-color: rgba($black, 0.3);
             //backdrop-filter: blur(6px) contrast(105%) brightness(90%);
-            backdrop-filter: blur(10px) contrast(110%) brightness(110%);
+            //backdrop-filter: blur(5px) contrast(115%) brightness(80%);
             //background-color: red;
+            backdrop-filter: blur(6px) brightness(70%);
 
             p {
-                //font-weight: 300;
+                //font-weight: 100;
                 //letter-spacing: 0.25px;
-
             }
         }
     }
@@ -279,7 +162,8 @@ section {
     .header {
         @include set-font("cabin");
         font-weight: 800;
-        font-size: 2rem;
+        //font-size: 2rem;
+        font-size: 1.7rem;
         border-right: 5px solid $pink;
         border-bottom: 3px solid $pink;
         margin-bottom: 20px;
@@ -302,8 +186,11 @@ section {
 
     p {
         //@include set-font("outfit");
-        font-size: 1.1rem;
-        font-weight: 200;
+        //@include set-font("inter");
+        //@include set-font-by-index(5);
+        //font-size: 1.1rem;
+        //font-weight: 200;
+        //letter-spacing: 1px;
     }
 }
 
@@ -317,20 +204,13 @@ section#landing {
     height: 100lvh;
     overflow: hidden;
 
-
-
-
     .section-content {
         position: relative;
-        backdrop-filter: contrast(130%) blur(5px);
-
-        z-index: 99;
-
-        //mix-blend-mode: overlay;
-        //box-sizing: content-box;
-        //background-blend-mode: multiply;
+        //backdrop-filter: contrast(130%) blur(5px);
+        backdrop-filter: blur(7px) contrast(110%) brightness(80%);
         padding: 35px 25px;
         box-sizing: content-box;
+        display: none;
 
         @mixin set-box-shadow($x, $y, $color: $pink) {
             box-shadow: $x $y $color;
@@ -353,11 +233,11 @@ section#landing {
             right: 0;
             bottom: 0;
             left: 0;
-            $shadow1: 4px 0 7px rgba($black, 0.7);
+            $shadow1: 4px 2px 15px rgba($black, 0.7);
             //$shadow1: 4px 3px 3px rgba($black, 0.3);
-            $shadow2: -3px -2px 2px rgba($white, 0.03);
-            box-shadow: $shadow1, $shadow2;
-            //box-shadow: $shadow1;
+            $shadow2: 0 0 1px rgba($white, 0.4);
+            //box-shadow: $shadow1, $shadow2;
+            box-shadow: $shadow1;
             pointer-events: none;
         }
 
@@ -451,10 +331,12 @@ section#about {
     mask: linear-gradient(to bottom, transparent 0%, white 30%);
     //padding-top: 100px;
     padding-top: 117px;
+    //font-size: 16px;
 
     p {
         margin: 12px 0;
         //margin-bottom: 17px;
+        font-size: 1.1rem;
     }
 }
 
@@ -462,21 +344,34 @@ section#about {
 section#why {
     .quadrant-group {
         display: grid;
-        grid-template-rows: auto auto;
-        grid-template-columns: auto auto;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         //grid-gap: 0 5px;
         //grid-gap: 8px;
         //box-sizing: content-box;
         //column-gap: 5px;
-        grid-gap: 13px;
-        place-content: center;
+        //grid-gap: 13px;
+        //grid-gap: 8px;
 
+        //row-gap: 40px;
+        //column-gap: 12px;
+
+        //background-color: blue;
+        place-content: flex-start;
+        //place-items: center;
+        //place-items: flex-start center;
 
         .quadrant {
             //box-shadow: 1px 1px rgba($pink, 0.5);
             //padding: 10px;
             //margin: 10px;
-            max-width: 300px;
+            //max-width: 260px;
+            //background-color: red;
+            border: 1px solid red;
+            padding: 20px 10px;
+            //justify-content: flex-start;
+
+
 
             h4 {
                 @include set-font("outfit");
@@ -490,13 +385,23 @@ section#why {
             }
 
             p {
+                //background-color: blue;
                 text-wrap: balance;
+                //padding-right: 10px;
+                //margin-left: 10px;
                 //text-wrap: stable;
+
                 //text-wrap: pretty;
                 //font-size: 0.99rem;
-                font-size: 1.03rem;
+                font-size: 1.05rem;
+                //font-size: 1rem;
+                //line-height: .99lh;
+                //word-spacing: normal;
                 //background-color: red;
                 //padding-right: 4px;
+                //border: 1px solid red;
+                max-width: fit-content;
+                //width: min-content;
             }
         }
     }
