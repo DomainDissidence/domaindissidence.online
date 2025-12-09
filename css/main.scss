@@ -78,7 +78,8 @@ a {
     z-index: -3;
 
     $gradient-colors: ($pink, #FFF);
-    background: make-gradient(to bottom, $gradient-colors), url("/assets/img/landing.jpg") no-repeat center;
+    //background: make-gradient(to bottom, $gradient-colors), url("/assets/img/landing.jpg") no-repeat center;
+    background: make-gradient(to bottom, $gradient-colors), url("/assets/img/landing.webp") no-repeat center;
     background-size: cover;
 
     //mix-blend-mode: multiply;
@@ -102,7 +103,7 @@ a {
 #particles {
     @include create-overlay(fixed);
     z-index: -1;
-    opacity: .2;
+    opacity: .4;
 
     canvas {
         min-width: 100%;

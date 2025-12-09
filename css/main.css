@@ -91,7 +91,7 @@ a:hover {
   display: block;
   overflow: hidden;
   z-index: -3;
-  background: linear-gradient(to bottom, #f75590 0%, white 50%), url("/assets/img/landing.jpg") no-repeat center;
+  background: linear-gradient(to bottom, #f75590 0%, white 50%), url("/assets/img/landing.webp") no-repeat center;
   background-size: cover;
   background-blend-mode: overlay;
   filter: blur(2px) brightness(30%);
@@ -107,7 +107,7 @@ a:hover {
   pointer-events: none;
   display: block;
   z-index: -1;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 #particles canvas {
   min-width: 100%;
