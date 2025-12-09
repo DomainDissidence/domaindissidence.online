@@ -1,4 +1,7 @@
 @use "sass:color";
+@use "sass:list";
+@use "sass:math";
+
 
 $black: #000;
 $white: #FFF;
@@ -16,4 +19,30 @@ $dim-white: color.adjust(#FFF, $lightness: -10%);
 
 :root {
     --ddtheme-pink: #{$pink};
+}
+
+
+@function make-gradient($angle: to bottom, $color-list: (), $opacity: 1) {
+    $num-grad-colors: list.length($color-list);
+
+    $opacity-colors: ();
+    @each $color in $color-list {
+        $opacity-colors: list.append($opacity-colors, rgba($color, $opacity));
+    }
+    //@error $opacity-colors;
+
+    $percent-list: ();
+    @for $i from 0 through $num-grad-colors {
+        $percent-decimal: math.div($i, $num-grad-colors);
+        $percent: math.ceil($percent-decimal * 100);
+        $percent-list: list.append($percent-list, calc($percent * 1%));
+
+        //set-nth($color-list, 1, #FF00FF);
+
+
+    }
+
+    $grad-percents: list.zip($opacity-colors, $percent-list);
+
+    @return linear-gradient($angle, $grad-percents);
 }

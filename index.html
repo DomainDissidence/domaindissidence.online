@@ -14,19 +14,27 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="./css/main.css">
 
-    <!-- SCRIPTS  -->
-    <!-- <script src="js/lib/anime.js"></script> -->
-    <script src="js/buttons.js" defer></script>
+    <!-- LIBRARY SCRIPTS -->
     <script src="js/lib/particlesjs/particles.min.js"></script>
-    <script type="module" src="js/landing-animations.js" defer></script>
+
+    <!-- SCRIPTS  -->
+    <script src="js/buttons.js" defer></script>
+    <script src="js/particles.js" defer></script>
+    <script type="module" src="js/animations.js" defer></script>
+    <!-- <script src="js/util/font-tester.js" defer></script> -->
 </head>
 <body>
 
 <!-- BACKGROUND -->
-<div id="background-layers">
-    <div id="background-image"></div>
-    <div id="particles"></div>
-</div>
+<!-- <div id="background-layers"> -->
+<!-- <div id="image-layers"> -->
+<div id="background-image"></div>
+<!-- <img id="background-image" src="assets/img/landing.jpg"> -->
+<div id="color-overlay"></div>
+<!-- </div> -->
+
+<div id="particles"></div>
+<!-- </div> -->
 
 
 <!-- LANDING PAGE -->
@@ -77,7 +85,7 @@
 <section id="why">
     <div class="section-content">
         <h2 class="header">Why?</h2>
-        <div class="quadrant-group">
+        <div class="why-section-row">
             <div class="quadrant">
                 <h4>1</h4>
                 <p>Almost every large company practices or enables exploitation at some level.</p>
@@ -86,6 +94,8 @@
                 <h4>2</h4>
                 <p>Most people feel powerless or otherwise voiceless in combating injustice.</p>
             </div>
+        </div>
+        <div class="why-section-row">
             <div class="quadrant">
                 <h4>3</h4>
                 <p>Protesting through the internet, the largest accessible shared space in the world, is the easiest way for people to reach mass audiences.</p>
@@ -95,6 +105,24 @@
                 <p>The internet is the newest unexplored but necessary venue of activism with little demonstration of its prowess as a tool for protesting.</p>
             </div>
         </div>
+        <!-- <div class="quadrant-group"> -->
+        <!--     <div class="quadrant"> -->
+        <!--         <h4>1</h4> -->
+        <!--         <p>Almost every large company practices or enables exploitation at some level.</p> -->
+        <!--     </div> -->
+        <!--     <div class="quadrant"> -->
+        <!--         <h4>2</h4> -->
+        <!--         <p>Most people feel powerless or otherwise voiceless in combating injustice.</p> -->
+        <!--     </div> -->
+        <!--     <div class="quadrant"> -->
+        <!--         <h4>3</h4> -->
+        <!--         <p>Protesting through the internet, the largest accessible shared space in the world, is the easiest way for people to reach mass audiences.</p> -->
+        <!--     </div> -->
+        <!--     <div class="quadrant"> -->
+        <!--         <h4>4</h4> -->
+        <!--         <p>The internet is the newest unexplored but necessary venue of activism with little demonstration of its prowess as a tool for protesting.</p> -->
+        <!--     </div> -->
+        <!-- </div> -->
     </div>
 </section>
 

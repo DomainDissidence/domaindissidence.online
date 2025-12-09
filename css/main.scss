@@ -3,17 +3,8 @@
 @use "partials/fonts" as *;
 @use "partials/breakpoints" as *;
 @use "partials/constants" as *;
-@use "sass:map";
-
-
-@keyframes bounce {
-    0% {
-        bottom: 0;
-    }
-    100% {
-        bottom: 5px;
-    }
-}
+@use "sass:list";
+@use "sass:math";
 
 
 * {
@@ -21,15 +12,17 @@
     padding: 0;
     border: none;
     box-sizing: border-box;
-    font-size: 17px;
     scroll-behavior: smooth;
 }
 
 
-
-
 html, body {
     height: 100%;
+}
+
+
+html {
+    font-size: 17px;
 }
 
 
@@ -38,6 +31,11 @@ body {
     color: $white;
     @include set-font("outfit");
     font-weight: 300;
+}
+
+
+p {
+    //font-family: inherit ;
 }
 
 
@@ -62,60 +60,56 @@ a {
 }
 
 
-#background-layers {
-    //background-color: blue;
-    position: fixed;
+@mixin create-overlay($position-type: absolute) {
+    position: $position-type;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
     overflow: hidden;
-    //overflow-x: hidden;
     pointer-events: none;
-
-    #background-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-
-        $gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.4) 100%);
-
-        background: $gradient, url("/assets/img/landing.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-
-        &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            backdrop-filter: blur(3px) brightness(17%);
-            //backdrop-filter: blur(5px) brightness(25%);
-        }
-    }
-
-
-    #particles {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: .15;
-    }
-
+    display: block;
 }
 
-//:root, body {
-//    --ddtheme-pink: "#FF6600";
-//}
+
+#background-image {
+    @include create-overlay(fixed);
+    overflow: hidden;
+    z-index: -3;
+
+    $gradient-colors: ($pink, #FFF);
+    background: make-gradient(to bottom, $gradient-colors), url("/assets/img/landing.jpg") no-repeat center;
+    background-size: cover;
+
+    //mix-blend-mode: multiply;
+    background-blend-mode: overlay;
+    //filter: blur(5px);
+    filter: blur(2px) brightness(30%);
+
+    //&:after {
+    //    content: "";
+    //    @include create-overlay();
+    //    //backdrop-filter: blur(2px) brightness(.5);
+    //    //z-index: -2;
+    //    //background-color: black;
+    //    //background-color: rgba($black, 0.7);
+    //    //opacity: 0.85;
+    //    //mix-blend-mode: darken;
+    //}
+}
+
+
+#particles {
+    @include create-overlay(fixed);
+    z-index: -1;
+    opacity: .2;
+
+    canvas {
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
 
 section {
     min-height: 330px;
@@ -125,17 +119,34 @@ section {
     align-items: center;
     padding: 40px;
     position: relative;
-
+    overflow: hidden;
 
     &:not(#landing) {
         background-color: $black;
         position: relative;
         //background-color: rgba($black, 0.4);
 
+        p {
+            //font-family: "Times New Roman", serif;
+            @include set-font("inter");
+            font-weight: 200;
+            font-stretch: normal;
+            //font-size: 1rem;
+            //letter-spacing: 0;
+        }
 
         &:nth-of-type(even) {
-            background-color: rgba($black, 0.36);
-            backdrop-filter: blur(6px);
+            //background-color: transparent;
+            background-color: rgba($black, 0.3);
+            //backdrop-filter: blur(6px) contrast(105%) brightness(90%);
+            //backdrop-filter: blur(5px) contrast(115%) brightness(80%);
+            //background-color: red;
+            backdrop-filter: blur(6px) brightness(70%);
+
+            p {
+                //font-weight: 100;
+                //letter-spacing: 0.25px;
+            }
         }
     }
 
@@ -152,7 +163,8 @@ section {
     .header {
         @include set-font("cabin");
         font-weight: 800;
-        font-size: 2rem;
+        //font-size: 2rem;
+        font-size: 1.7rem;
         border-right: 5px solid $pink;
         border-bottom: 3px solid $pink;
         margin-bottom: 20px;
@@ -167,15 +179,19 @@ section {
         font-weight: 800;
         text-transform: uppercase;
         color: $pink;
-        font-size: 1.4rem;
+        //font-size: 1.4rem;
+        font-size: 1.5rem;
         margin-bottom: 3px;
         letter-spacing: 2px;
     }
 
     p {
         //@include set-font("outfit");
-        font-size: 1.1rem;
-        font-weight: 200;
+        //@include set-font("inter");
+        //@include set-font-by-index(5);
+        //font-size: 1.1rem;
+        //font-weight: 200;
+        //letter-spacing: 1px;
     }
 }
 
@@ -185,27 +201,17 @@ section#landing {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    height: 100dvh;
+    //height: 100dvh;
+    height: 100lvh;
     overflow: hidden;
-
-    img {
-        width: 220px;
-        margin-bottom: 13px;
-
-        @include at-breakpoint($md) {
-            width: 290px;
-        }
-    }
-
 
     .section-content {
         position: relative;
-        backdrop-filter: blur(5px) brightness(87%) contrast(106%);
-        //mix-blend-mode: overlay;
-        //box-sizing: content-box;
-        background-blend-mode: multiply;
+        //backdrop-filter: contrast(130%) blur(5px);
+        backdrop-filter: blur(7px) contrast(120%) brightness(64%);
         padding: 35px 25px;
         box-sizing: content-box;
+        //display: none;
 
         @mixin set-box-shadow($x, $y, $color: $pink) {
             box-shadow: $x $y $color;
@@ -228,21 +234,60 @@ section#landing {
             right: 0;
             bottom: 0;
             left: 0;
-            $shadow1: 4px 0 7px rgba($black, 0.7);
+            $shadow1: 4px 2px 15px rgba($black, 0.7);
             //$shadow1: 4px 3px 3px rgba($black, 0.3);
-            $shadow2: -3px -2px 2px rgba($white, 0.03);
-            box-shadow: $shadow1, $shadow2;
-            //box-shadow: $shadow1;
+            $shadow2: 0 0 1px rgba($white, 0.4);
+            //box-shadow: $shadow1, $shadow2;
+            box-shadow: $shadow1;
             pointer-events: none;
         }
+
+
+        img {
+            width: 220px;
+            margin-bottom: 13px;
+
+            @include at-breakpoint($md) {
+                width: 290px;
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            text-wrap: pretty;
+            //font-weight: 200;
+            font-weight: 300;
+        }
+
     }
 
-    p {
-        font-size: 1.2rem;
-        text-wrap: pretty;
-        font-weight: 200;
-    }
 
+
+
+    #chevron-container {
+        //background-color: orangered;
+        position: absolute;
+        bottom: 20px;
+        //display: block;
+        width: 50px;
+        height: auto;
+        //width: auto;
+        //height: 40px;
+        aspect-ratio: 2 / 1.5;
+        margin-bottom: 10px;
+        //opacity: 0.6;
+        //    object-fit: fill;
+        //transform-origin: center;
+        //    filter: drop-shadow(0 -5px 2px red);
+
+        svg#down-chevron {
+            object-fit: fill;
+            min-width: 100%;
+            height: 100%;
+            //transform-origin: center;
+            //box-shadow: 0 0 5px red;
+        }
+    }
 
     #landing-buttons {
         margin-top: 50px;
@@ -281,65 +326,93 @@ section#landing {
             }
         }
     }
-
-
-    #chevron-container {
-        //background-color: orangered;
-        position: absolute;
-        bottom: 15px;
-        //display: block;
-        width: 50px;
-        height: auto;
-        //width: auto;
-        //height: 40px;
-        aspect-ratio: 2 / 1.5;
-        margin-bottom: 10px;
-        //opacity: 0.6;
-        //    object-fit: fill;
-        //transform-origin: center;
-        //    filter: drop-shadow(0 -5px 2px red);
-
-        svg#down-chevron {
-            object-fit: fill;
-            min-width: 100%;
-            height: 100%;
-            //transform-origin: center;
-            //box-shadow: 0 0 5px red;
-        }
-    }
-
-
 }
 
 
 section#about {
-    mask: linear-gradient(to bottom, transparent 0%, white 15%);
-    padding-top: 100px;
+    mask: linear-gradient(to bottom, transparent 0%, white 30%);
+    //padding-top: 100px;
+    padding-top: 117px;
+    //font-size: 16px;
 
     p {
         margin: 12px 0;
         //margin-bottom: 17px;
+        font-size: 1.1rem;
     }
 }
 
 
 section#why {
-    .quadrant-group {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: auto auto;
-        grid-gap: 9px;
+    padding: 40px 30px;
+
+    .section-content {
+        //border: 1px solid cyan;
+    }
+
+    .why-section-row {
+        //border: 1px solid green;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 20px 0;
+        column-gap: 12px;
+
 
         .quadrant {
+            //box-shadow: 1px 1px rgba($pink, 0.5);
+            //padding: 10px;
+            //margin: 10px;
+            max-width: 220px;
+            //background-color: red;
+            //border: 1px solid red;
+            //padding: 20px 10px;
+
+            flex: 1;
+            //gap: 100px;
+
+            //justify-content: flex-start;
+
+
+
             h4 {
                 @include set-font("outfit");
                 font-weight: 700;
                 font-size: 2.5rem;
+                //background-color: red;
 
                 &:after {
                     content: ".";
                     color: $pink;
                 }
+            }
+
+            p {
+                //display: none;
+                //background-color: blue;
+                //text-wrap: balance;
+                //padding-right: 10px;
+                //margin-left: 10px;
+                text-wrap: stable;
+                font-weight: 300;
+                width: 95%;
+
+                //font-weight: normal;
+
+
+
+                //text-wrap: pretty;
+                //font-size: 0.99rem;
+                //font-size: 1.05rem;
+                //font-size: 1rem;
+                //line-height: 1.1lh;
+                //word-spacing: normal;
+                //background-color: red;
+                //padding-right: 4px;
+                //border: 1px solid red;
+                //max-width: fit-content;
+                //width: min-content;
             }
         }
     }
@@ -412,6 +485,7 @@ section#goals {
         //max-width: 270px;
         text-align: center;
         text-wrap: pretty;
+        transform-origin: top;
 
         .icon {
             width: $goal-icon-size;

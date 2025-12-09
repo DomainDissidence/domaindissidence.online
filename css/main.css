@@ -3,23 +3,13 @@
   --ddtheme-pink: #f75590;
 }
 
-@font-face {
-  font-family: "Gill Sans Extra Condensed Bold";
-  font-weight: bold;
-  src: url("../../assets/fonts/GillSansExtraCondensedBold.otf") format("opentype");
-}
-.gill-sans-font-style {
-  font-family: "Gill Sans Extra Condensed Bold", sans-serif;
-  transform: scaleY(0.85);
-}
-
-.inter-font-style, footer p {
+.inter-font-style, section:not(#landing) p, footer p {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-.outfit-font-style, body, section#landing #landing-buttons button, section#why .quadrant-group .quadrant h4 {
+.outfit-font-style, body, section#landing #landing-buttons button, section#why .why-section-row .quadrant h4 {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -44,25 +34,24 @@
   font-variation-settings: "wdth" 100;
 }
 
-@keyframes bounce {
-  0% {
-    bottom: 0;
-  }
-  100% {
-    bottom: 5px;
-  }
+:export {
+  test: "inter", "outfit", "mozilla-text", "jetbrains-mono", "cabin";
 }
+
 * {
   margin: 0;
   padding: 0;
   border: none;
   box-sizing: border-box;
-  font-size: 17px;
   scroll-behavior: smooth;
 }
 
 html, body {
   height: 100%;
+}
+
+html {
+  font-size: 17px;
 }
 
 body {
@@ -91,44 +80,38 @@ a:hover {
   background-repeat: no-repeat;
 }
 
-#background-layers {
+#background-image {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
   overflow: hidden;
   pointer-events: none;
-}
-#background-layers #background-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.73) 0%, rgba(255, 0, 183, 0.4) 100%), url("/assets/img/landing.jpg");
+  display: block;
+  overflow: hidden;
+  z-index: -3;
+  background: linear-gradient(to bottom, #f75590 0%, white 50%), url("/assets/img/landing.jpg") no-repeat center;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+  background-blend-mode: overlay;
+  filter: blur(2px) brightness(30%);
 }
-#background-layers #background-image:after {
-  content: "";
-  position: absolute;
+
+#particles {
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(3px) brightness(17%);
+  overflow: hidden;
+  pointer-events: none;
+  display: block;
+  z-index: -1;
+  opacity: 0.2;
 }
-#background-layers #particles {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0.15;
+#particles canvas {
+  min-width: 100%;
+  min-height: 100%;
 }
 
 section {
@@ -139,14 +122,19 @@ section {
   align-items: center;
   padding: 40px;
   position: relative;
+  overflow: hidden;
 }
 section:not(#landing) {
   background-color: #000;
   position: relative;
 }
+section:not(#landing) p {
+  font-weight: 200;
+  font-stretch: normal;
+}
 section:not(#landing):nth-of-type(even) {
-  background-color: rgba(0, 0, 0, 0.36);
-  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px) brightness(70%);
 }
 section .section-content, section .header {
   max-width: 600px;
@@ -158,7 +146,7 @@ section .section-content {
 }
 section .header {
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 1.7rem;
   border-right: 5px solid #f75590;
   border-bottom: 3px solid #f75590;
   margin-bottom: 20px;
@@ -172,36 +160,21 @@ section .subheader {
   font-weight: 800;
   text-transform: uppercase;
   color: #f75590;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 3px;
   letter-spacing: 2px;
 }
-section p {
-  font-size: 1.1rem;
-  font-weight: 200;
-}
-
 section#landing {
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  height: 100dvh;
+  height: 100lvh;
   overflow: hidden;
-}
-section#landing img {
-  width: 220px;
-  margin-bottom: 13px;
-}
-@media screen and (min-width: 768px) {
-  section#landing img {
-    width: 290px;
-  }
 }
 section#landing .section-content {
   position: relative;
-  backdrop-filter: blur(5px) brightness(87%) contrast(106%);
-  background-blend-mode: multiply;
+  backdrop-filter: blur(7px) contrast(120%) brightness(64%);
   padding: 35px 25px;
   box-sizing: content-box;
   box-shadow: 8px 5px #f75590;
@@ -221,13 +194,35 @@ section#landing .section-content:before {
   right: 0;
   bottom: 0;
   left: 0;
-  box-shadow: 4px 0 7px rgba(0, 0, 0, 0.7), -3px -2px 2px rgba(255, 255, 255, 0.03);
+  box-shadow: 4px 2px 15px rgba(0, 0, 0, 0.7);
   pointer-events: none;
 }
-section#landing p {
+section#landing .section-content img {
+  width: 220px;
+  margin-bottom: 13px;
+}
+@media screen and (min-width: 768px) {
+  section#landing .section-content img {
+    width: 290px;
+  }
+}
+section#landing .section-content p {
   font-size: 1.2rem;
   text-wrap: pretty;
-  font-weight: 200;
+  font-weight: 300;
+}
+section#landing #chevron-container {
+  position: absolute;
+  bottom: 20px;
+  width: 50px;
+  height: auto;
+  aspect-ratio: 2/1.5;
+  margin-bottom: 10px;
+}
+section#landing #chevron-container svg#down-chevron {
+  object-fit: fill;
+  min-width: 100%;
+  height: 100%;
 }
 section#landing #landing-buttons {
   margin-top: 50px;
@@ -265,41 +260,43 @@ section#landing #landing-buttons button:not(:first-of-type) {
     flex: unset;
   }
 }
-section#landing #chevron-container {
-  position: absolute;
-  bottom: 15px;
-  width: 50px;
-  height: auto;
-  aspect-ratio: 2/1.5;
-  margin-bottom: 10px;
-}
-section#landing #chevron-container svg#down-chevron {
-  object-fit: fill;
-  min-width: 100%;
-  height: 100%;
-}
 
 section#about {
-  mask: linear-gradient(to bottom, transparent 0%, white 15%);
-  padding-top: 100px;
+  mask: linear-gradient(to bottom, transparent 0%, white 30%);
+  padding-top: 117px;
 }
 section#about p {
   margin: 12px 0;
+  font-size: 1.1rem;
 }
 
-section#why .quadrant-group {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: auto auto;
-  grid-gap: 9px;
+section#why {
+  padding: 40px 30px;
 }
-section#why .quadrant-group .quadrant h4 {
+section#why .why-section-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px 0;
+  column-gap: 12px;
+}
+section#why .why-section-row .quadrant {
+  max-width: 220px;
+  flex: 1;
+}
+section#why .why-section-row .quadrant h4 {
   font-weight: 700;
   font-size: 2.5rem;
 }
-section#why .quadrant-group .quadrant h4:after {
+section#why .why-section-row .quadrant h4:after {
   content: ".";
   color: #f75590;
+}
+section#why .why-section-row .quadrant p {
+  text-wrap: stable;
+  font-weight: 300;
+  width: 95%;
 }
 
 section#bigger-picture {
@@ -356,6 +353,7 @@ section#goals .goal {
   align-items: center;
   text-align: center;
   text-wrap: pretty;
+  transform-origin: top;
 }
 section#goals .goal .icon {
   width: 80px;
