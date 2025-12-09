@@ -251,12 +251,12 @@ section#landing #landing-buttons button:hover {
   background-color: #f75590;
   color: #FFF;
 }
-section#landing #landing-buttons button:not(:first-of-type) {
-  margin-left: 10px;
+section#landing #landing-buttons button:first-of-type {
+  margin-right: 10px;
   flex: 1;
 }
 @media screen and (min-width: 576px) {
-  section#landing #landing-buttons button:not(:first-of-type) {
+  section#landing #landing-buttons button:first-of-type {
     flex: unset;
   }
 }
