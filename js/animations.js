@@ -12,7 +12,7 @@ animate("#chevron-container", {
 animate(".bigger-picture-row", {
     opacity: { from: 0 },
     delay: stagger(100, { start: 0 }),
-    duration: 800,
+    duration: 600,
     autoplay: onScroll({
         sync: "play none none reverse",
         target: "#bigger-picture",
@@ -23,6 +23,28 @@ animate(".bigger-picture-row", {
 animate(".goal > *", {
     opacity: { from: 0 },
     delay: stagger(40),
-    ease: "outSine",
-    autoplay: false,
+    duration: 500,
+    ease: "outQuad",
+    autoplay: onScroll({
+        sync: "play none none reverse",
+        target: "#goals",
+    })
+});
+
+// animate(".goal > *", {
+//     opacity: { from: 0 },
+//     delay: stagger(40),
+//     ease: "outSine",
+//     autoplay: onScroll({
+//         sync: "play none none reverse",
+//         target: "#goals",
+//
+//     }),
+//     // autoplay: false,
+// });
+
+
+animate("#landing .inner-content", {
+    opacity: [0, 1]
+
 });

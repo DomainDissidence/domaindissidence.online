@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-.outfit-font-style, body, section#landing #landing-buttons button, section#why .quadrant-group .quadrant h4 {
+.outfit-font-style, body, section#landing #landing-buttons button, section#why .why-section-row .quadrant h4 {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -174,10 +174,9 @@ section#landing {
 }
 section#landing .section-content {
   position: relative;
-  backdrop-filter: blur(7px) contrast(110%) brightness(80%);
+  backdrop-filter: blur(7px) contrast(120%) brightness(64%);
   padding: 35px 25px;
   box-sizing: content-box;
-  display: none;
   box-shadow: 8px 5px #f75590;
   margin-right: 8px;
 }
@@ -210,7 +209,7 @@ section#landing .section-content img {
 section#landing .section-content p {
   font-size: 1.2rem;
   text-wrap: pretty;
-  font-weight: 200;
+  font-weight: 300;
 }
 section#landing #chevron-container {
   position: absolute;
@@ -271,28 +270,33 @@ section#about p {
   font-size: 1.1rem;
 }
 
-section#why .quadrant-group {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  place-content: flex-start;
+section#why {
+  padding: 40px 30px;
 }
-section#why .quadrant-group .quadrant {
-  border: 1px solid red;
-  padding: 20px 10px;
+section#why .why-section-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px 0;
+  column-gap: 12px;
 }
-section#why .quadrant-group .quadrant h4 {
+section#why .why-section-row .quadrant {
+  max-width: 220px;
+  flex: 1;
+}
+section#why .why-section-row .quadrant h4 {
   font-weight: 700;
   font-size: 2.5rem;
 }
-section#why .quadrant-group .quadrant h4:after {
+section#why .why-section-row .quadrant h4:after {
   content: ".";
   color: #f75590;
 }
-section#why .quadrant-group .quadrant p {
-  text-wrap: balance;
-  font-size: 1.05rem;
-  max-width: fit-content;
+section#why .why-section-row .quadrant p {
+  text-wrap: stable;
+  font-weight: 300;
+  width: 95%;
 }
 
 section#bigger-picture {

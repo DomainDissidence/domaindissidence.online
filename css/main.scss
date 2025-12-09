@@ -33,6 +33,7 @@ body {
     font-weight: 300;
 }
 
+
 p {
     //font-family: inherit ;
 }
@@ -207,10 +208,10 @@ section#landing {
     .section-content {
         position: relative;
         //backdrop-filter: contrast(130%) blur(5px);
-        backdrop-filter: blur(7px) contrast(110%) brightness(80%);
+        backdrop-filter: blur(7px) contrast(120%) brightness(64%);
         padding: 35px 25px;
         box-sizing: content-box;
-        display: none;
+        //display: none;
 
         @mixin set-box-shadow($x, $y, $color: $pink) {
             box-shadow: $x $y $color;
@@ -254,7 +255,8 @@ section#landing {
         p {
             font-size: 1.2rem;
             text-wrap: pretty;
-            font-weight: 200;
+            //font-weight: 200;
+            font-weight: 300;
         }
 
     }
@@ -342,33 +344,34 @@ section#about {
 
 
 section#why {
-    .quadrant-group {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-        //grid-gap: 0 5px;
-        //grid-gap: 8px;
-        //box-sizing: content-box;
-        //column-gap: 5px;
-        //grid-gap: 13px;
-        //grid-gap: 8px;
+    padding: 40px 30px;
 
-        //row-gap: 40px;
-        //column-gap: 12px;
+    .section-content {
+        //border: 1px solid cyan;
+    }
 
-        //background-color: blue;
-        place-content: flex-start;
-        //place-items: center;
-        //place-items: flex-start center;
+    .why-section-row {
+        //border: 1px solid green;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 20px 0;
+        column-gap: 12px;
+
 
         .quadrant {
             //box-shadow: 1px 1px rgba($pink, 0.5);
             //padding: 10px;
             //margin: 10px;
-            //max-width: 260px;
+            max-width: 220px;
             //background-color: red;
-            border: 1px solid red;
-            padding: 20px 10px;
+            //border: 1px solid red;
+            //padding: 20px 10px;
+
+            flex: 1;
+            //gap: 100px;
+
             //justify-content: flex-start;
 
 
@@ -377,6 +380,7 @@ section#why {
                 @include set-font("outfit");
                 font-weight: 700;
                 font-size: 2.5rem;
+                //background-color: red;
 
                 &:after {
                     content: ".";
@@ -385,22 +389,29 @@ section#why {
             }
 
             p {
+                //display: none;
                 //background-color: blue;
-                text-wrap: balance;
+                //text-wrap: balance;
                 //padding-right: 10px;
                 //margin-left: 10px;
-                //text-wrap: stable;
+                text-wrap: stable;
+                font-weight: 300;
+                width: 95%;
+
+                //font-weight: normal;
+
+
 
                 //text-wrap: pretty;
                 //font-size: 0.99rem;
-                font-size: 1.05rem;
+                //font-size: 1.05rem;
                 //font-size: 1rem;
-                //line-height: .99lh;
+                //line-height: 1.1lh;
                 //word-spacing: normal;
                 //background-color: red;
                 //padding-right: 4px;
                 //border: 1px solid red;
-                max-width: fit-content;
+                //max-width: fit-content;
                 //width: min-content;
             }
         }
