@@ -190,19 +190,15 @@
     <h2 class="header">Instructions</h2>
 
     <div class="section-content">
-        <p>The full instructions can be found <a href="https://github.com/rynstwrt/DomainDissidence/blob/main/INSTALL.md">here</a>.</p>
+        <p>The full instructions can be found <a href="https://github.com/rynstwrt/DomainDissidence/blob/main/INSTALL.md" target="_blank">here</a>.</p>
 
         <ol>
             <li>
-                Install the DomainDissidence package with the Node Package Manager (NPM):
-                <code>npm i -g domaindissidence@latest</code>
+                Install the DomainDissidence NPM package and initialize the website files:
+                <code>npm i -g domaindissidence@latest && domaindissidence --init</code>
             </li>
             <li>
-                Create the initial files:
-                <code>domaindissidence --init</code>
-            </li>
-            <li>
-                Configure your site by editing the generated config.toml file.
+                Configure your site by editing the generated <span class="highlight">config.toml</span> file.
             </li>
             <li>
                 Generate the final website by running:

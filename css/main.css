@@ -374,8 +374,14 @@ section#instructions .section-content ol {
   margin: 20px 0;
   padding-left: 2ch;
 }
+section#instructions .section-content ol li::marker {
+  color: #f75590;
+}
 section#instructions .section-content ol li {
   margin: 20px 0;
+}
+section#instructions .section-content ol li .highlight {
+  color: #f75590;
 }
 section#instructions .section-content ol li code {
   display: block;

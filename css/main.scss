@@ -515,11 +515,23 @@ section#instructions {
             margin: 20px 0;
             padding-left: 2ch;
 
+            li::marker {
+                color: $pink;
+                //color: red !important;
+                //background-color: green;
+            }
+
             li {
                 margin: 20px 0;
                 //display: block;
                 //font-family: inherit;
                 //letter-spacing: 1px;
+
+                .highlight {
+                    color: $pink;
+                    //font-weight: 600;
+                    //font-weight: inherit;
+                }
 
                 code {
                     display: block;
