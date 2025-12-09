@@ -21,7 +21,7 @@
   font-style: normal;
 }
 
-.jetbrains-mono-font-style {
+.jetbrains-mono-font-style, section#instructions .section-content ol li code {
   font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
   font-style: normal;
@@ -368,6 +368,28 @@ section#goals .goal .icon#checked-box {
 }
 section#goals .goal .icon#community {
   background-image: url("/assets/icons/community.svg");
+}
+
+section#instructions .section-content ol {
+  margin: 20px 0;
+  padding-left: 2ch;
+}
+section#instructions .section-content ol li {
+  margin: 20px 0;
+}
+section#instructions .section-content ol li code {
+  display: block;
+  width: fit-content;
+  padding: 3px 10px;
+}
+section#instructions .section-content ol li code {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 3px;
+  font-weight: 100;
+  font-size: 0.9em;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  border-radius: 2px;
 }
 
 section#inspiration .section-content {
