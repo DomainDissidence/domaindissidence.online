@@ -401,15 +401,18 @@ section#instructions .section-content ol li code {
 section#gallery .section-content {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
   align-items: center;
 }
-section#gallery .section-content #light-gallery {
-  width: 100%;
-  overflow: hidden;
-}
-section#gallery .section-content #light-gallery a img {
-  width: 100%;
+@media screen and (min-width: 768px) {
+  section#gallery .section-content {
+    flex-direction: row;
+  }
+  section#gallery .section-content figure:first-of-type {
+    margin-right: 30px;
+  }
+  section#gallery .section-content figure:last-of-type {
+    margin-left: 30px;
+  }
 }
 section#gallery .section-content figure {
   display: flex;
