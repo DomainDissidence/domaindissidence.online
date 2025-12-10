@@ -553,6 +553,74 @@ section#instructions {
 }
 
 
+section#gallery {
+    .section-content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+
+        #light-gallery {
+            width: 100%;
+            //width: 300px;
+            overflow: hidden;
+            //border: 1px solid red;
+
+            a {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 350px;
+            margin-top: 30px;
+            //border: 1px solid blue;
+            //order: 2;
+
+            .figure-img-container {
+                //width: 100%;
+                //min-height: 400px;
+                //max-height: 500px;
+                //width:
+                border-radius: 3px;
+                box-shadow: 3px 3px rgba($pink, .8);
+                overflow: hidden;
+                cursor: pointer;
+
+                img {
+                    //object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    //object-fit: cover;
+                    //object-position: center;
+                    pointer-events: none;
+
+                    &:after {
+
+                    }
+                }
+            }
+
+            figcaption {
+                font-family: inherit;
+                font-size: 1.05rem;
+                //letter-spacing: 1px;
+                letter-spacing: 0.5px;
+                //text-align: center;
+                margin-bottom: 5px;
+                width: 100%;
+                //order: 0;
+            }
+        }
+    }
+}
+
+
 section#inspiration {
     //background-color: transparent !important;
 

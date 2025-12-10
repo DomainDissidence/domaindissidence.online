@@ -13,14 +13,19 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <!-- <link type="text/css" rel="stylesheet" href="js/lib/lightgallery/css/lightgallery-bundle.css" /> -->
+
 
     <!-- LIBRARY SCRIPTS -->
     <script src="js/lib/particlesjs/particles.min.js"></script>
+    <script src="js/lib/lightgallery/lightgallery.umd.js"></script>
 
     <!-- SCRIPTS  -->
     <script src="js/buttons.js" defer></script>
     <script src="js/particles.js" defer></script>
     <script type="module" src="js/animations.js" defer></script>
+    <!-- <script src="js/gallery.js" defer></script> -->
+    <!-- <script src="js/gallery.js" defer></script> -->
     <!-- <script src="js/util/font-tester.js" defer></script> -->
 </head>
 <body>
@@ -186,6 +191,7 @@
 </section>
 
 
+<!-- INSTRUCTIONS SECTION -->
 <section id="instructions">
     <h2 class="header">Instructions</h2>
 
@@ -211,6 +217,40 @@
 </section>
 
 
+<!-- GALLERY SECTION -->
+<section id="gallery">
+    <h2 class="header">Gallery</h2>
+
+    <div class="section-content">
+        <!-- <div id="light-gallery"> -->
+        <!--     <a href="assets/img/landingscreenshot.jpg"> -->
+        <!--         <img src="assets/img/landingscreenshot.jpg" alt="Screenshot of generated landing section"> -->
+        <!--     </a> -->
+        <!--     <a href="assets/img/dealgridscreenshot.jpg"> -->
+        <!--         <img src="assets/img/dealgridscreenshot.jpg" alt="Screenshot of generated deal grid"> -->
+        <!--     </a> -->
+        <!-- </div> -->
+
+
+        <figure>
+            <figcaption>Generated Landing Page</figcaption>
+
+            <a href="assets/img/landingscreenshot.jpg" target="_blank" class="figure-img-container">
+                <img src="assets/img/landingscreenshot.jpg" alt="Screenshot of generated landing section">
+            </a>
+        </figure>
+
+        <figure>
+            <figcaption>Generated Deals Section</figcaption>
+
+            <a href="assets/img/dealgridscreenshot.jpg" target="_blank" class="figure-img-container">
+                <img src="assets/img/dealgridscreenshot.jpg" alt="Screenshot of generated deal grid">
+            </a>
+        </figure>
+    </div>
+</section>
+
+
 <!-- INSPIRATION SECTION -->
 <section id="inspiration">
     <h2 class="header">Inspiration</h2>
@@ -222,7 +262,6 @@
             <br><br>
             This project was also heavily inspired by the BDS boycott list in support of Palestinian liberation.
         </p>
-        <!-- <p>This project was also heavily inspired by the BDS boycott list for Palestine.</p> -->
     </div>
 </section>
 

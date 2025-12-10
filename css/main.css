@@ -398,6 +398,45 @@ section#instructions .section-content ol li code {
   border-radius: 2px;
 }
 
+section#gallery .section-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+}
+section#gallery .section-content #light-gallery {
+  width: 100%;
+  overflow: hidden;
+}
+section#gallery .section-content #light-gallery a img {
+  width: 100%;
+}
+section#gallery .section-content figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  margin-top: 30px;
+}
+section#gallery .section-content figure .figure-img-container {
+  border-radius: 3px;
+  box-shadow: 3px 3px rgba(247, 85, 144, 0.8);
+  overflow: hidden;
+  cursor: pointer;
+}
+section#gallery .section-content figure .figure-img-container img {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+section#gallery .section-content figure figcaption {
+  font-family: inherit;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
 section#inspiration .section-content {
   display: flex;
   flex-direction: row;
