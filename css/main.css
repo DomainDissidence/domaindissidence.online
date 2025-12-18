@@ -425,23 +425,12 @@ section#gallery .section-content {
   flex-direction: column;
   align-items: center;
 }
-@media screen and (min-width: 768px) {
-  section#gallery .section-content {
-    flex-direction: row;
-  }
-  section#gallery .section-content figure:first-of-type {
-    margin-right: 30px;
-  }
-  section#gallery .section-content figure:last-of-type {
-    margin-left: 30px;
-  }
-}
 section#gallery .section-content figure {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 350px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 section#gallery .section-content figure .figure-img-container {
   border-radius: 3px;
@@ -457,9 +446,11 @@ section#gallery .section-content figure .figure-img-container img {
 section#gallery .section-content figure figcaption {
   font-family: inherit;
   font-size: 1.05rem;
-  letter-spacing: 0.5px;
-  margin-bottom: 5px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 8px;
   width: 100%;
+  text-transform: uppercase;
 }
 
 section#inspiration .section-content {
