@@ -264,7 +264,7 @@ section#landing #landing-buttons button:not(:last-child), section#landing #landi
   margin-right: 10px;
 }
 section#landing #landing-buttons a#github-icon {
-  height: 30px;
+  height: 35px;
   display: block;
   margin-left: 5px;
 }
