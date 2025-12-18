@@ -268,9 +268,19 @@ section#landing #landing-buttons a#github-icon {
   display: block;
   margin-left: 5px;
 }
-section#landing #landing-buttons a#github-icon img {
+section#landing #landing-buttons a#github-icon svg {
   min-height: 100%;
   width: auto;
+  overflow: visible;
+  fill: transparent;
+  stroke: #f75590;
+}
+section#landing #landing-buttons a#github-icon svg path {
+  transition: fill 0.07s ease-out, stroke 0.07s ease-out;
+}
+section#landing #landing-buttons a#github-icon:hover svg {
+  fill: #f75590;
+  stroke: #f75590;
 }
 
 section#about {
